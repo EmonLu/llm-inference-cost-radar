@@ -205,6 +205,47 @@ def llm_summarize_cn(title, summary, source, categories):
         return ''
 
 
+def llm_translate_cn(text, mode='abstract'):
+    text = normalize_text(text)
+    token = load_copilot_token()
+    if not token or not text:
+        return ''
+    if mode == 'experiment':
+        prompt = (
+            '你是一个研究雷达助手。请把下面的实验结果提炼成1到2句中文。'
+            '要求：保留关键数值、对比对象和提升/下降方向；不要加前缀，不要泛泛复述背景。'
+        )
+        max_tokens = 140
+    else:
+        prompt = (
+            '你是一个研究雷达助手。请把下面的英文摘要改写成一段完整中文摘要。'
+            '要求：忠实原意，尽量覆盖方法、问题设定、系统价值和核心结果；不要使用编号。'
+        )
+        max_tokens = 420
+    payload = {
+        'model': 'gpt-4.1',
+        'messages': [
+            {'role': 'system', 'content': prompt},
+            {'role': 'user', 'content': text[:6000]},
+        ],
+        'temperature': 0.2,
+        'max_tokens': max_tokens,
+    }
+    req = urllib.request.Request(
+        'https://api.githubcopilot.com/chat/completions',
+        headers=copilot_headers(token),
+        data=json.dumps(payload).encode('utf-8'),
+        method='POST',
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=90) as r:
+            data = json.loads(r.read().decode('utf-8', 'ignore'))
+        text = normalize_text(data['choices'][0]['message']['content'])
+        return re.sub(r'^[\-•\d\.:：\s]+', '', text)
+    except Exception:
+        return ''
+
+
 def arxiv_search(query, max_results=20, start=0):
     params = {
         'search_query': query,
@@ -485,6 +526,27 @@ def build_cn_brief(item, llm_text=''):
     return ''.join([opening, middle, closing])
 
 
+def build_cn_abstract(item):
+    translated = llm_translate_cn(item.get('summary', ''), mode='abstract')
+    if translated:
+        return translated
+    summary = normalize_text(item.get('summary', ''))
+    if not summary:
+        return ''
+    sentences = split_sentences(summary)
+    return ' '.join(sentences[:3])
+
+
+def build_cn_experiment_takeaways(item):
+    translated = llm_translate_cn(item.get('experiment_takeaways', ''), mode='experiment')
+    if translated:
+        return translated
+    english = normalize_text(item.get('experiment_takeaways', ''))
+    if english:
+        return f'实验结果表明：{english}'
+    return ''
+
+
 def infer_topics_and_score(item):
     hay = f"{item['title']} {item['summary']} {' '.join(item.get('categories', []))} {item.get('source', '')}".lower()
     score = 0
@@ -628,6 +690,8 @@ def prepare_items(config, days_back):
         item['score_with_authority'] = round(item['relevance_score'] * float(item.get('authority', 1.0)), 2)
         item['cn_summary'] = chinese_one_liner(item)
         item['experiment_takeaways'] = extract_experiment_takeaways(item.get('summary', ''))
+        item['cn_abstract'] = build_cn_abstract(item)
+        item['cn_experiment_takeaways'] = build_cn_experiment_takeaways(item)
         existing = prepared_map.get(item['id'])
         if existing is None or item['score_with_authority'] > existing['score_with_authority']:
             prepared_map[item['id']] = item
@@ -653,9 +717,13 @@ def render_item_block(item, idx=None):
     if item.get('categories'):
         lines.append(f"- 分类: {', '.join(item['categories'][:8])}")
     lines.append(f"- 中文解读: {item['cn_summary']}")
-    lines.append(f"- 完整摘要: {item['summary']}")
+    if item.get('cn_abstract'):
+        lines.append(f"- 中文摘要: {item['cn_abstract']}")
+    if item.get('cn_experiment_takeaways'):
+        lines.append(f"- 中文实验结论: {item['cn_experiment_takeaways']}")
+    lines.append(f"- 英文原摘要: {item['summary']}")
     if item.get('experiment_takeaways'):
-        lines.append(f"- 关键实验结论: {item['experiment_takeaways']}")
+        lines.append(f"- 英文实验结论: {item['experiment_takeaways']}")
     if item.get('pdf_url'):
         lines.append(f"- 链接: [abs]({item['url']}) | [pdf]({item['pdf_url']})")
     else:
@@ -715,18 +783,18 @@ def render_weekly_report(end_date_str, papers, feeds):
 def render_readme(today, daily_papers, daily_feeds, weekly_papers, weekly_feeds):
     lines = ['# LLM Inference Cost Radar', '']
     lines.extend([
-        'A daily-updated research radar for:',
-        '- LLMRouter and LLM routing',
-        '- model routing inside coding agents',
-        '- CPU/GPU heterogeneous inference for MoE models',
-        '- cost-saving LLM inference, serving, scheduling, and optimization',
-        '- agent systems / multi-agent efficiency and routing-related work',
+        '一个面向以下方向的每日更新研究雷达：',
+        '- LLMRouter 与 LLM 路由',
+        '- coding agent 内部的模型路由与调度',
+        '- 面向 MoE 的 CPU/GPU 异构推理',
+        '- 降低大模型推理成本的 serving / scheduling / optimization 工作',
+        '- agent 系统与多智能体效率相关工作',
         '',
-        'Now includes:',
+        '当前能力包括：',
         '- 每日论文雷达',
         '- 每周精选',
         '- 权威工程来源更新（NVIDIA / PyTorch / GitHub Blog / LMSYS / vLLM / SemiAnalysis / DeepSpeed）',
-        '- 基于 LLM 的中文多句解读与关键实验结论提炼',
+        '- 中文多句解读、中文摘要与中文实验结论提炼',
         '',
         '## 最新更新',
         '',
@@ -749,8 +817,8 @@ def render_readme(today, daily_papers, daily_feeds, weekly_papers, weekly_feeds)
             lines.append(f"- [{item['title']}]({item['url']})")
             lines.append(f"  - 主题: {', '.join(item.get('matched_topics', []))}")
             lines.append(f"  - 中文解读: {item['cn_summary']}")
-            if item.get('experiment_takeaways'):
-                lines.append(f"  - 关键实验结论: {item['experiment_takeaways']}")
+            if item.get('cn_experiment_takeaways'):
+                lines.append(f"  - 中文实验结论: {item['cn_experiment_takeaways']}")
     lines.extend([
         '',
         '## 配置',

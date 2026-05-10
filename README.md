@@ -1,17 +1,17 @@
 # LLM Inference Cost Radar
 
-A daily-updated research radar for:
-- LLMRouter and LLM routing
-- model routing inside coding agents
-- CPU/GPU heterogeneous inference for MoE models
-- cost-saving LLM inference, serving, scheduling, and optimization
-- agent systems / multi-agent efficiency and routing-related work
+一个面向以下方向的每日更新研究雷达：
+- LLMRouter 与 LLM 路由
+- coding agent 内部的模型路由与调度
+- 面向 MoE 的 CPU/GPU 异构推理
+- 降低大模型推理成本的 serving / scheduling / optimization 工作
+- agent 系统与多智能体效率相关工作
 
-Now includes:
+当前能力包括：
 - 每日论文雷达
 - 每周精选
 - 权威工程来源更新（NVIDIA / PyTorch / GitHub Blog / LMSYS / vLLM / SemiAnalysis / DeepSpeed）
-- 基于 LLM 的中文多句解读与关键实验结论提炼
+- 中文多句解读、中文摘要与中文实验结论提炼
 
 ## 最新更新
 

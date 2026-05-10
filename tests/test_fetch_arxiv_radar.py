@@ -53,8 +53,8 @@ class FetchArxivRadarTests(unittest.TestCase):
         self.assertGreaterEqual(brief.count('。'), 2)
         self.assertIn('实验', brief)
 
-    def test_render_item_block_keeps_full_summary_and_experiment_takeaways(self):
-        full_summary = ' '.join(['full-summary'] * 80)
+    def test_render_item_block_uses_chinese_first_layout(self):
+        full_summary = 'English summary sentence one. English summary sentence two.'
         item = {
             'title': 'Example Paper',
             'paper_id': '2605.00001v1',
@@ -67,15 +67,26 @@ class FetchArxivRadarTests(unittest.TestCase):
             'authors': ['Alice'],
             'categories': ['cs.AI'],
             'cn_summary': '第一句。第二句。第三句。',
+            'cn_abstract': '这是一段较完整的中文摘要。',
             'summary': full_summary,
-            'experiment_takeaways': '实验结果显示延迟下降 28%，吞吐提升 1.6x。',
+            'cn_experiment_takeaways': '实验显示延迟下降 28%，吞吐提升 1.6x。',
+            'experiment_takeaways': 'Latency drops by 28% and throughput increases by 1.6x.',
             'url': 'https://arxiv.org/abs/2605.00001',
             'pdf_url': 'https://arxiv.org/pdf/2605.00001v1',
         }
         rendered = '\n'.join(radar.render_item_block(item, 1))
-        self.assertIn(f'- 完整摘要: {full_summary}', rendered)
-        self.assertIn('- 关键实验结论: 实验结果显示延迟下降 28%，吞吐提升 1.6x。', rendered)
-        self.assertNotIn('…', rendered)
+        self.assertIn('- 中文解读: 第一句。第二句。第三句。', rendered)
+        self.assertIn('- 中文摘要: 这是一段较完整的中文摘要。', rendered)
+        self.assertIn('- 中文实验结论: 实验显示延迟下降 28%，吞吐提升 1.6x。', rendered)
+        self.assertIn(f'- 英文原摘要: {full_summary}', rendered)
+        self.assertNotIn('- 完整摘要:', rendered)
+
+    def test_render_readme_is_chinese_first(self):
+        readme = radar.render_readme('2026-05-10', [], [], [], [])
+        self.assertIn('一个面向以下方向的每日更新研究雷达：', readme)
+        self.assertIn('当前能力包括：', readme)
+        self.assertIn('中文多句解读、中文摘要与中文实验结论提炼', readme)
+        self.assertNotIn('A daily-updated research radar for:', readme)
 
 
 if __name__ == '__main__':
