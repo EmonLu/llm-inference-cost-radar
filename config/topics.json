@@ -1,0 +1,108 @@
+{
+  "days_back": 3,
+  "weekly_days_back": 7,
+  "max_results_per_query": 40,
+  "top_n_daily": 15,
+  "top_n_weekly": 25,
+  "queries": [
+    {
+      "name": "LLM routing",
+      "query": "all:\"LLM routing\" OR all:LLMRouter OR all:RouteLLM OR (all:\"model routing\" AND (all:LLM OR all:\"large language model\")) OR (all:\"small model\" AND all:routing AND all:llm)"
+    },
+    {
+      "name": "Coding agent routing",
+      "query": "(all:\"coding agent\" OR all:\"code agent\" OR all:\"software engineering agent\" OR all:\"repo-level agent\" OR all:\"SWE agent\" OR all:\"agentic coding\") AND (all:routing OR all:router OR all:cost OR all:inference OR all:model)"
+    },
+    {
+      "name": "Agent systems and multi-agent efficiency",
+      "query": "(all:agent OR all:multi-agent OR all:agentic) AND (all:llm OR all:\"language model\") AND (all:efficiency OR all:cost OR all:routing OR all:serving OR all:latency)"
+    },
+    {
+      "name": "Heterogeneous MoE inference",
+      "query": "((all:MoE OR all:\"mixture of experts\") AND all:inference) AND ((all:CPU AND all:GPU) OR all:heterogeneous OR all:offloading OR all:scheduling OR all:\"expert parallelism\")"
+    },
+    {
+      "name": "Cost-efficient LLM inference",
+      "query": "((all:LLM OR all:\"large language model\") AND all:inference) AND (all:\"cost efficient\" OR all:\"cost-effective\" OR all:efficient OR all:optimization OR all:serving OR all:latency OR all:throughput OR all:quantization OR all:\"speculative decoding\" OR all:\"kv cache\")"
+    }
+  ],
+  "source_feeds": [
+    {
+      "name": "arXiv cs.AI",
+      "type": "rss",
+      "url": "https://export.arxiv.org/rss/cs.AI",
+      "authority": 1.0,
+      "category": "paper"
+    },
+    {
+      "name": "arXiv cs.LG",
+      "type": "rss",
+      "url": "https://export.arxiv.org/rss/cs.LG",
+      "authority": 1.0,
+      "category": "paper"
+    },
+    {
+      "name": "arXiv cs.CL",
+      "type": "rss",
+      "url": "https://export.arxiv.org/rss/cs.CL",
+      "authority": 0.95,
+      "category": "paper"
+    },
+    {
+      "name": "arXiv cs.DC",
+      "type": "rss",
+      "url": "https://export.arxiv.org/rss/cs.DC",
+      "authority": 0.95,
+      "category": "paper"
+    },
+    {
+      "name": "NVIDIA Generative AI Blog",
+      "type": "rss",
+      "url": "https://developer.nvidia.com/blog/category/generative-ai/feed/",
+      "authority": 0.95,
+      "category": "blog"
+    },
+    {
+      "name": "NVIDIA TensorRT-LLM Blog",
+      "type": "atom",
+      "url": "https://developer.nvidia.com/blog/tag/tensorrt-llm/feed/",
+      "authority": 0.97,
+      "category": "blog"
+    },
+    {
+      "name": "PyTorch Blog",
+      "type": "rss",
+      "url": "https://pytorch.org/feed/",
+      "authority": 0.9,
+      "category": "blog"
+    },
+    {
+      "name": "LMSYS Blog",
+      "type": "html-lmsys",
+      "url": "https://www.lmsys.org/blog/",
+      "authority": 0.95,
+      "category": "blog"
+    },
+    {
+      "name": "vLLM Blog",
+      "type": "rss",
+      "url": "https://vllm.ai/blog/rss.xml",
+      "authority": 0.98,
+      "category": "blog"
+    },
+    {
+      "name": "SemiAnalysis",
+      "type": "rss",
+      "url": "https://semianalysis.com/feed/",
+      "authority": 0.9,
+      "category": "blog"
+    },
+    {
+      "name": "DeepSpeed",
+      "type": "atom",
+      "url": "https://www.deepspeed.ai/feed.xml",
+      "authority": 0.92,
+      "category": "blog"
+    }
+  ]
+}
