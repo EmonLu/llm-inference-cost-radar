@@ -1,5 +1,6 @@
 import datetime as dt
 import json
+import os
 import re
 import ssl
 import time
@@ -144,6 +145,9 @@ def fetch_url(url, retries=3):
 
 def load_copilot_token():
     for key in ['COPILOT_GITHUB_TOKEN', 'GITHUB_TOKEN', 'GH_TOKEN']:
+        env_value = os.environ.get(key, '').strip()
+        if env_value:
+            return env_value
         value = re.search(rf'^(?!\s*#)\s*{re.escape(key)}=(.+)$', ENV_PATH.read_text(encoding='utf-8', errors='ignore') if ENV_PATH.exists() else '', re.M)
         if value:
             token = value.group(1).strip().strip('"').strip("'")
@@ -533,8 +537,9 @@ def build_cn_abstract(item):
     summary = normalize_text(item.get('summary', ''))
     if not summary:
         return ''
-    sentences = split_sentences(summary)
-    return ' '.join(sentences[:3])
+    metrics = re.findall(r'\d+(?:\.\d+)?\s*(?:%|x|ms|s|tokens/s|GB|MB|GiB|MiB)', summary, flags=re.I)
+    metric_text = '、'.join(dict.fromkeys(metrics[:3])) if metrics else '未提取到明确数值'
+    return f'原文摘要暂未成功自动翻译，建议参考下方英文原摘要。当前可先关注其中提到的关键指标，例如 {metric_text}。'
 
 
 def build_cn_experiment_takeaways(item):
@@ -543,7 +548,9 @@ def build_cn_experiment_takeaways(item):
         return translated
     english = normalize_text(item.get('experiment_takeaways', ''))
     if english:
-        return f'实验结果表明：{english}'
+        metrics = re.findall(r'\d+(?:\.\d+)?\s*(?:%|x|ms|s|tokens/s|GB|MB|GiB|MiB)', english, flags=re.I)
+        metric_text = '、'.join(dict.fromkeys(metrics[:3])) if metrics else '请查看下方英文实验结论'
+        return f'实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：{metric_text}。'
     return ''
 
 

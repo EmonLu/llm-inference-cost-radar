@@ -1,6 +1,9 @@
 import importlib.util
+import os
 from pathlib import Path
+import tempfile
 import unittest
+from unittest import mock
 
 
 SCRIPT_PATH = Path(__file__).resolve().parents[1] / 'scripts' / 'fetch_arxiv_radar.py'
@@ -87,6 +90,38 @@ class FetchArxivRadarTests(unittest.TestCase):
         self.assertIn('当前能力包括：', readme)
         self.assertIn('中文多句解读、中文摘要与中文实验结论提炼', readme)
         self.assertNotIn('A daily-updated research radar for:', readme)
+
+    def test_load_copilot_token_prefers_env_over_file(self):
+        with tempfile.NamedTemporaryFile('w', delete=False, encoding='utf-8') as tmp:
+            tmp.write('GITHUB_TOKEN=file_token\n')
+            env_path = tmp.name
+        try:
+            with mock.patch.object(radar, 'ENV_PATH', Path(env_path)):
+                with mock.patch.dict(os.environ, {'GITHUB_TOKEN': 'env_token'}, clear=False):
+                    self.assertEqual(radar.load_copilot_token(), 'env_token')
+        finally:
+            Path(env_path).unlink(missing_ok=True)
+
+    def test_build_cn_abstract_fallback_is_not_raw_english(self):
+        item = {
+            'summary': 'This system reduces TTFT by 40% and improves throughput by 1.8x on long-context serving.',
+        }
+        with mock.patch.object(radar, 'llm_translate_cn', return_value=''):
+            translated = radar.build_cn_abstract(item)
+        self.assertNotIn('This system reduces TTFT', translated)
+        self.assertIn('40%', translated)
+        self.assertIn('1.8x', translated)
+        self.assertTrue(any(ch >= '\u4e00' and ch <= '\u9fff' for ch in translated))
+
+    def test_build_cn_experiment_takeaways_fallback_is_not_raw_english(self):
+        item = {
+            'experiment_takeaways': 'Latency drops by 28% and throughput increases by 1.6x compared with vLLM.',
+        }
+        with mock.patch.object(radar, 'llm_translate_cn', return_value=''):
+            translated = radar.build_cn_experiment_takeaways(item)
+        self.assertNotIn('Latency drops by 28%', translated)
+        self.assertIn('28%', translated)
+        self.assertTrue(any(ch >= '\u4e00' and ch <= '\u9fff' for ch in translated))
 
 
 if __name__ == '__main__':
