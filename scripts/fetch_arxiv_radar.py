@@ -168,10 +168,11 @@ def llm_summarize_cn(title, summary, source, categories):
     if not token:
         return ''
     prompt = (
-        '你是一个研究雷达助手。请只输出一句中文总结，不超过38个字。'
-        '要点：1) 点出这项工作最核心的系统/成本价值；'
-        '2) 如果和 routing、agent、MoE、CPU/GPU 异构、KV cache、量化、推理优化有关，要明确说出来；'
-        '3) 不要使用编号、引号、前缀。'
+        '你是一个研究雷达助手。请输出2到3句中文总结。'
+        '要求：1) 第一旬概括论文/文章到底做了什么；'
+        '2) 第二句说明它和 routing、agent、MoE、CPU/GPU 异构、KV cache、量化、推理优化、系统成本的关系；'
+        '3) 如果摘要里有实验结果、对比结论、吞吐/延迟/成本/准确率变化，请在最后一句点出关键结论；'
+        '4) 不要使用编号、标题、引号或前缀。'
     )
     user = (
         f'标题：{title}\n'
@@ -186,7 +187,7 @@ def llm_summarize_cn(title, summary, source, categories):
             {'role': 'user', 'content': user},
         ],
         'temperature': 0.2,
-        'max_tokens': 80,
+        'max_tokens': 220,
     }
     req = urllib.request.Request(
         'https://api.githubcopilot.com/chat/completions',
@@ -199,7 +200,7 @@ def llm_summarize_cn(title, summary, source, categories):
             data = json.loads(r.read().decode('utf-8', 'ignore'))
         text = normalize_text(data['choices'][0]['message']['content'])
         text = re.sub(r'^[\-•\d\.:：\s]+', '', text)
-        return short_summary(text, 60)
+        return text
     except Exception:
         return ''
 
@@ -398,6 +399,92 @@ def short_summary(text, width=260):
     return text[: width - 1].rstrip() + '…'
 
 
+def split_sentences(text):
+    text = normalize_text(text)
+    if not text:
+        return []
+    parts = re.split(r'(?<=[。！？!?\.])\s+', text)
+    cleaned = [normalize_text(p) for p in parts if normalize_text(p)]
+    return cleaned or ([text] if text else [])
+
+
+def extract_experiment_takeaways(summary, max_sentences=2):
+    sentences = split_sentences(summary)
+    if not sentences:
+        return ''
+    keywords = [
+        'experiment', 'experiments', 'evaluation', 'results', 'benchmark', 'benchmarks', 'ablation',
+        'outperform', 'outperforms', 'improves', 'improvement', 'improved', 'gain', 'gains',
+        'latency', 'throughput', 'accuracy', 'speedup', 'lower', 'higher', 'reduce', 'reduction',
+        'cost', 'memory', 'better', 'sota', '%', 'x '
+    ]
+    weak_markers = [
+        'we introduce', 'we present', 'we propose', 'we build', 'we develop', 'we address',
+        'based on the predictions', 'our method', 'our system', 'this paper', 'we release code'
+    ]
+    metric_pattern = re.compile(r'\d+(?:\.\d+)?\s*(?:%|x|ms|s|tokens/s|gb|mib|gib)(?:\b|(?=\W)|$)')
+    scored = []
+    for sent in sentences:
+        lower = sent.lower()
+        score = sum(1 for key in keywords if key in lower)
+        has_metric = bool(metric_pattern.search(lower))
+        if has_metric:
+            score += 4
+        if any(marker in lower for marker in weak_markers) and not has_metric:
+            score -= 3
+        if ('show' in lower or 'shows' in lower or 'achieves' in lower or 'achieve' in lower or 'improves' in lower) and has_metric:
+            score += 2
+        if score > 0:
+            scored.append((score, sent, has_metric))
+    scored.sort(key=lambda x: (-x[0], not x[2], len(x[1])))
+    selected = []
+    metric_selected = 0
+    for score, sent, has_metric in scored:
+        if len(selected) >= max_sentences:
+            break
+        if has_metric:
+            selected.append(sent)
+            metric_selected += 1
+            continue
+        if metric_selected == 0:
+            selected.append(sent)
+    if not selected and sentences:
+        selected = sentences[:1]
+    return ' '.join(selected)
+
+
+def build_cn_brief(item, llm_text=''):
+    llm_text = normalize_text(llm_text)
+    if llm_text:
+        sentences = split_sentences(llm_text)
+        if len(sentences) >= 2:
+            return ''.join(sentences[:3])
+        if sentences:
+            return sentences[0]
+
+    hits = item.get('reason_hits', [])
+    topic_text = '、'.join(item.get('matched_topics', [])[:3]) or '大模型推理效率优化'
+    source = item.get('source', '该来源')
+    title = item.get('title', '这项工作')
+    opening = f"这项工作主要关注{topic_text}，核心内容是《{title}》在 {source} 这一方向上的推进。"
+
+    phrases = []
+    for hit in hits:
+        if hit in CN_PHRASES and CN_PHRASES[hit] not in phrases:
+            phrases.append(CN_PHRASES[hit])
+    middle = phrases[0] if phrases else '它重点讨论系统效率、成本控制或推理路径优化带来的实际价值。'
+
+    takeaway = extract_experiment_takeaways(item.get('summary', ''), max_sentences=1)
+    if takeaway:
+        closing = f"从实验上看，{takeaway}"
+    elif item.get('source_type') == 'blog':
+        closing = '它更偏工程实践，适合作为论文之外的实现和系统演进参考。'
+    else:
+        closing = '如果你在看 routing、agent、MoE 或 KV cache 方向，这篇值得认真过一遍。'
+
+    return ''.join([opening, middle, closing])
+
+
 def infer_topics_and_score(item):
     hay = f"{item['title']} {item['summary']} {' '.join(item.get('categories', []))} {item.get('source', '')}".lower()
     score = 0
@@ -444,18 +531,7 @@ def infer_topics_and_score(item):
 
 def chinese_one_liner(item):
     llm_text = llm_summarize_cn(item['title'], item['summary'], item['source'], item.get('categories', []))
-    if llm_text:
-        return llm_text
-    hits = item.get('reason_hits', [])
-    phrases = []
-    for hit in hits:
-        if hit in CN_PHRASES and CN_PHRASES[hit] not in phrases:
-            phrases.append(CN_PHRASES[hit])
-    if item.get('source_type') == 'blog':
-        phrases.append('这是权威技术博客/官方工程更新，可帮助补充学术论文之外的工程趋势。')
-    if not phrases:
-        phrases.append('这篇内容与大模型推理效率或 agent 系统优化相关，建议关注。')
-    return ' '.join(phrases[:2])
+    return build_cn_brief(item, llm_text)
 
 
 def collect_arxiv(config, days_back):
@@ -551,6 +627,7 @@ def prepare_items(config, days_back):
             continue
         item['score_with_authority'] = round(item['relevance_score'] * float(item.get('authority', 1.0)), 2)
         item['cn_summary'] = chinese_one_liner(item)
+        item['experiment_takeaways'] = extract_experiment_takeaways(item.get('summary', ''))
         existing = prepared_map.get(item['id'])
         if existing is None or item['score_with_authority'] > existing['score_with_authority']:
             prepared_map[item['id']] = item
@@ -575,8 +652,10 @@ def render_item_block(item, idx=None):
         lines.append(f"- 作者: {', '.join(item['authors'][:8])}")
     if item.get('categories'):
         lines.append(f"- 分类: {', '.join(item['categories'][:8])}")
-    lines.append(f"- 中文一句话: {item['cn_summary']}")
-    lines.append(f"- 摘要: {short_summary(item['summary'], 420)}")
+    lines.append(f"- 中文解读: {item['cn_summary']}")
+    lines.append(f"- 完整摘要: {item['summary']}")
+    if item.get('experiment_takeaways'):
+        lines.append(f"- 关键实验结论: {item['experiment_takeaways']}")
     if item.get('pdf_url'):
         lines.append(f"- 链接: [abs]({item['url']}) | [pdf]({item['pdf_url']})")
     else:
@@ -647,7 +726,7 @@ def render_readme(today, daily_papers, daily_feeds, weekly_papers, weekly_feeds)
         '- 每日论文雷达',
         '- 每周精选',
         '- 权威工程来源更新（NVIDIA / PyTorch / GitHub Blog / LMSYS / vLLM / SemiAnalysis / DeepSpeed）',
-        '- 基于 LLM 的中文一句话摘要',
+        '- 基于 LLM 的中文多句解读与关键实验结论提炼',
         '',
         '## 最新更新',
         '',
@@ -669,7 +748,9 @@ def render_readme(today, daily_papers, daily_feeds, weekly_papers, weekly_feeds)
         for item in top:
             lines.append(f"- [{item['title']}]({item['url']})")
             lines.append(f"  - 主题: {', '.join(item.get('matched_topics', []))}")
-            lines.append(f"  - 中文一句话: {item['cn_summary']}")
+            lines.append(f"  - 中文解读: {item['cn_summary']}")
+            if item.get('experiment_takeaways'):
+                lines.append(f"  - 关键实验结论: {item['experiment_takeaways']}")
     lines.extend([
         '',
         '## 配置',
