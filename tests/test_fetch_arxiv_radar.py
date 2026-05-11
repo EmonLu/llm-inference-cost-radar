@@ -123,6 +123,88 @@ class FetchArxivRadarTests(unittest.TestCase):
         self.assertIn('28%', translated)
         self.assertTrue(any(ch >= '\u4e00' and ch <= '\u9fff' for ch in translated))
 
+    def test_collect_arxiv_skips_rate_limited_query_and_keeps_other_results(self):
+        config = {
+            'max_results_per_query': 5,
+            'queries': [
+                {'name': 'q1', 'query': 'first'},
+                {'name': 'q2', 'query': 'second'},
+            ],
+        }
+        xml_ok = '''
+        <feed xmlns="http://www.w3.org/2005/Atom">
+          <entry>
+            <id>http://arxiv.org/abs/2605.00001v1</id>
+            <title>Test Paper</title>
+            <summary>Test summary</summary>
+            <published>2026-05-10T00:00:00Z</published>
+            <updated>2026-05-10T00:00:00Z</updated>
+            <author><name>Alice</name></author>
+            <category term="cs.AI" />
+          </entry>
+        </feed>
+        '''
+        rate_limit = radar.urllib.error.HTTPError(
+            'https://export.arxiv.org/api/query', 429, 'Too Many Requests', None, None
+        )
+        with mock.patch.object(radar, 'arxiv_search', side_effect=[rate_limit, xml_ok]):
+            with mock.patch.object(radar.time, 'sleep', return_value=None):
+                items = radar.collect_arxiv(config, days_back=30)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]['title'], 'Test Paper')
+
+    def test_prepare_items_survives_arxiv_rate_limit(self):
+        config = {'days_back': 3}
+        feed_item = {
+            'id': 'feed-1',
+            'title': 'vLLM released a new scheduling optimization',
+            'summary': 'This update improves throughput by 1.4x and reduces latency by 20%.',
+            'published_dt': radar.dt.datetime.now(radar.dt.timezone.utc),
+            'published': '2026-05-11',
+            'source': 'vLLM Blog',
+            'source_type': 'blog',
+            'categories': [],
+            'matched_topics': ['Cost-efficient LLM inference'],
+            'authority': 2.0,
+            'url': 'https://example.com',
+        }
+        rate_limit = radar.urllib.error.HTTPError(
+            'https://export.arxiv.org/api/query', 429, 'Too Many Requests', None, None
+        )
+        with mock.patch.object(radar, 'collect_arxiv', side_effect=rate_limit):
+            with mock.patch.object(radar, 'collect_feeds', return_value=[feed_item]):
+                with mock.patch.object(radar, 'chinese_one_liner', return_value='中文解读。第二句。'):
+                    with mock.patch.object(radar, 'build_cn_abstract', return_value='中文摘要'):
+                        with mock.patch.object(radar, 'build_cn_experiment_takeaways', return_value='中文实验结论'):
+                            items = radar.prepare_items(config, days_back=3)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]['source'], 'vLLM Blog')
+
+    def test_prepare_items_survives_arxiv_urlerror(self):
+        config = {'days_back': 3}
+        feed_item = {
+            'id': 'feed-2',
+            'title': 'SGLang improved prefix caching',
+            'summary': 'This update reduces TTFT by 18% and improves throughput by 1.3x.',
+            'published_dt': radar.dt.datetime.now(radar.dt.timezone.utc),
+            'published': '2026-05-11',
+            'source': 'LMSYS Blog',
+            'source_type': 'blog',
+            'categories': [],
+            'matched_topics': ['Cost-efficient LLM inference'],
+            'authority': 2.0,
+            'url': 'https://example.com/2',
+        }
+        url_err = radar.urllib.error.URLError('Remote end closed connection without response')
+        with mock.patch.object(radar, 'collect_arxiv', side_effect=url_err):
+            with mock.patch.object(radar, 'collect_feeds', return_value=[feed_item]):
+                with mock.patch.object(radar, 'chinese_one_liner', return_value='中文解读。第二句。'):
+                    with mock.patch.object(radar, 'build_cn_abstract', return_value='中文摘要'):
+                        with mock.patch.object(radar, 'build_cn_experiment_takeaways', return_value='中文实验结论'):
+                            items = radar.prepare_items(config, days_back=3)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]['source'], 'LMSYS Blog')
+
 
 if __name__ == '__main__':
     unittest.main()

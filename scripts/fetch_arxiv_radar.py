@@ -607,7 +607,13 @@ def collect_arxiv(config, days_back):
     max_results = int(config.get('max_results_per_query', 20))
     all_items = {}
     for q in config.get('queries', []):
-        xml_text = arxiv_search(q['query'], max_results=max_results)
+        try:
+            xml_text = arxiv_search(q['query'], max_results=max_results)
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                print(f"[warn] arXiv query rate-limited, skipping query: {q['name']}")
+                continue
+            raise
         time.sleep(3)
         for item in parse_arxiv_atom(xml_text, q['name']):
             if not is_recent(item['published_dt'], days_back):
@@ -685,7 +691,17 @@ def passes_quality_gate(item):
 
 
 def prepare_items(config, days_back):
-    paper_candidates = collect_arxiv(config, days_back)
+    try:
+        paper_candidates = collect_arxiv(config, days_back)
+    except urllib.error.HTTPError as e:
+        if e.code == 429:
+            print('[warn] arXiv collection hit rate limit; continuing with feed sources only')
+            paper_candidates = []
+        else:
+            raise
+    except urllib.error.URLError as e:
+        print(f'[warn] arXiv collection failed with network error: {e}; continuing with feed sources only')
+        paper_candidates = []
     feed_candidates = collect_feeds(config, days_back)
     prepared_map = {}
     for item in paper_candidates + feed_candidates:
