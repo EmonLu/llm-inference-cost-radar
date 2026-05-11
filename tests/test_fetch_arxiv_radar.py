@@ -153,6 +153,34 @@ class FetchArxivRadarTests(unittest.TestCase):
         self.assertEqual(len(items), 1)
         self.assertEqual(items[0]['title'], 'Test Paper')
 
+    def test_collect_arxiv_skips_network_error_query_and_keeps_other_results(self):
+        config = {
+            'max_results_per_query': 5,
+            'queries': [
+                {'name': 'q1', 'query': 'first'},
+                {'name': 'q2', 'query': 'second'},
+            ],
+        }
+        xml_ok = '''
+        <feed xmlns="http://www.w3.org/2005/Atom">
+          <entry>
+            <id>http://arxiv.org/abs/2605.00002v1</id>
+            <title>Recovered Paper</title>
+            <summary>Test summary</summary>
+            <published>2026-05-10T00:00:00Z</published>
+            <updated>2026-05-10T00:00:00Z</updated>
+            <author><name>Bob</name></author>
+            <category term="cs.AI" />
+          </entry>
+        </feed>
+        '''
+        url_err = radar.urllib.error.URLError('Remote end closed connection without response')
+        with mock.patch.object(radar, 'arxiv_search', side_effect=[url_err, xml_ok]):
+            with mock.patch.object(radar.time, 'sleep', return_value=None):
+                items = radar.collect_arxiv(config, days_back=30)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]['title'], 'Recovered Paper')
+
     def test_prepare_items_survives_arxiv_rate_limit(self):
         config = {'days_back': 3}
         feed_item = {

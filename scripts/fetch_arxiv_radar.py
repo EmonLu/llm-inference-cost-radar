@@ -614,6 +614,9 @@ def collect_arxiv(config, days_back):
                 print(f"[warn] arXiv query rate-limited, skipping query: {q['name']}")
                 continue
             raise
+        except urllib.error.URLError as e:
+            print(f"[warn] arXiv query network error, skipping query {q['name']}: {e}")
+            continue
         time.sleep(3)
         for item in parse_arxiv_atom(xml_text, q['name']):
             if not is_recent(item['published_dt'], days_back):
