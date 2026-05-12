@@ -21,6 +21,8 @@ jobs:
           python-version: '3.11'
 
       - name: Run collector
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
         run: python scripts/fetch_arxiv_radar.py
 
       - name: Commit and push changes
