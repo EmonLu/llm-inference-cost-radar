@@ -153,6 +153,66 @@ class FetchArxivRadarTests(unittest.TestCase):
         self.assertEqual(len(items), 1)
         self.assertEqual(items[0]['title'], 'Test Paper')
 
+    def test_collect_arxiv_skips_rate_limited_query_and_keeps_other_results(self):
+        config = {
+            'max_results_per_query': 5,
+            'queries': [
+                {'name': 'q1', 'query': 'first'},
+                {'name': 'q2', 'query': 'second'},
+            ],
+        }
+        xml_ok = '''
+        <feed xmlns="http://www.w3.org/2005/Atom">
+          <entry>
+            <id>http://arxiv.org/abs/2605.00001v1</id>
+            <title>Test Paper</title>
+            <summary>Test summary</summary>
+            <published>2026-05-10T00:00:00Z</published>
+            <updated>2026-05-10T00:00:00Z</updated>
+            <author><name>Alice</name></author>
+            <category term="cs.AI" />
+          </entry>
+        </feed>
+        '''
+        rate_limit = radar.urllib.error.HTTPError(
+            'https://export.arxiv.org/api/query', 429, 'Too Many Requests', None, None
+        )
+        with mock.patch.object(radar, 'arxiv_search', side_effect=[rate_limit, xml_ok]):
+            with mock.patch.object(radar.time, 'sleep', return_value=None):
+                items = radar.collect_arxiv(config, days_back=30)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]['title'], 'Test Paper')
+
+    def test_collect_arxiv_skips_503_query_and_keeps_other_results(self):
+        config = {
+            'max_results_per_query': 5,
+            'queries': [
+                {'name': 'q1', 'query': 'first'},
+                {'name': 'q2', 'query': 'second'},
+            ],
+        }
+        xml_ok = '''
+        <feed xmlns="http://www.w3.org/2005/Atom">
+          <entry>
+            <id>http://arxiv.org/abs/2605.00003v1</id>
+            <title>Recovered After 503</title>
+            <summary>Test summary</summary>
+            <published>2026-05-10T00:00:00Z</published>
+            <updated>2026-05-10T00:00:00Z</updated>
+            <author><name>Carol</name></author>
+            <category term="cs.AI" />
+          </entry>
+        </feed>
+        '''
+        svc_unavail = radar.urllib.error.HTTPError(
+            'https://export.arxiv.org/api/query', 503, 'Service Unavailable', None, None
+        )
+        with mock.patch.object(radar, 'arxiv_search', side_effect=[svc_unavail, xml_ok]):
+            with mock.patch.object(radar.time, 'sleep', return_value=None):
+                items = radar.collect_arxiv(config, days_back=30)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]['title'], 'Recovered After 503')
+
     def test_collect_arxiv_skips_network_error_query_and_keeps_other_results(self):
         config = {
             'max_results_per_query': 5,

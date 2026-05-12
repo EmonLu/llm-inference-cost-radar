@@ -613,6 +613,9 @@ def collect_arxiv(config, days_back):
             if e.code == 429:
                 print(f"[warn] arXiv query rate-limited, skipping query: {q['name']}")
                 continue
+            if 500 <= e.code < 600:
+                print(f"[warn] arXiv query server error {e.code}, skipping query: {q['name']}")
+                continue
             raise
         except urllib.error.URLError as e:
             print(f"[warn] arXiv query network error, skipping query {q['name']}: {e}")
@@ -699,6 +702,9 @@ def prepare_items(config, days_back):
     except urllib.error.HTTPError as e:
         if e.code == 429:
             print('[warn] arXiv collection hit rate limit; continuing with feed sources only')
+            paper_candidates = []
+        elif 500 <= e.code < 600:
+            print(f'[warn] arXiv collection hit server error {e.code}; continuing with feed sources only')
             paper_candidates = []
         else:
             raise
