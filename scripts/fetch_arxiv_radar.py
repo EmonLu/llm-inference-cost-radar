@@ -4,8 +4,10 @@ import os
 import re
 import ssl
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
+import uuid
 import xml.etree.ElementTree as ET
 from html import unescape
 from pathlib import Path
@@ -167,9 +169,11 @@ def copilot_headers(token):
     return {
         'Authorization': f'Bearer {token}',
         'Editor-Version': 'vscode/1.104.1',
-        'User-Agent': 'HermesAgent/1.0',
+        'User-Agent': 'GitHubCopilotChat/0.26.7',
         'Openai-Intent': 'conversation-edits',
         'x-initiator': 'agent',
+        'Copilot-Integration-Id': 'vscode-chat',
+        'X-Request-Id': str(uuid.uuid4()),
         'Content-Type': 'application/json',
     }
 

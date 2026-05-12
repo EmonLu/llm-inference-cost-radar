@@ -107,6 +107,13 @@ class FetchArxivRadarTests(unittest.TestCase):
             with mock.patch.dict(os.environ, {'COPILOTGITHUBTOKEN': 'legacy_token'}, clear=True):
                 self.assertEqual(radar.load_copilot_token(), 'legacy_token')
 
+    def test_copilot_headers_include_github_copilot_markers(self):
+        headers = radar.copilot_headers('legacy_token')
+        self.assertEqual(headers['Authorization'], 'Bearer legacy_token')
+        self.assertIn('Editor-Version', headers)
+        self.assertIn('Copilot-Integration-Id', headers)
+        self.assertIn('X-Request-Id', headers)
+
     def test_build_cn_abstract_fallback_is_not_raw_english(self):
         item = {
             'summary': 'This system reduces TTFT by 40% and improves throughput by 1.8x on long-context serving.',
