@@ -23,6 +23,7 @@ jobs:
       - name: Run collector
         env:
           COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          COPILOTGITHUBTOKEN: ${{ secrets.COPILOTGITHUBTOKEN }}
         run: python scripts/fetch_arxiv_radar.py
 
       - name: Commit and push changes
