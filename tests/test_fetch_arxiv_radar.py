@@ -102,6 +102,11 @@ class FetchArxivRadarTests(unittest.TestCase):
         finally:
             Path(env_path).unlink(missing_ok=True)
 
+    def test_load_copilot_token_supports_legacy_secret_name_without_underscores(self):
+        with mock.patch.object(radar, 'ENV_PATH', Path('/tmp/nonexistent-hermes-env-for-test')):
+            with mock.patch.dict(os.environ, {'COPILOTGITHUBTOKEN': 'legacy_token'}, clear=True):
+                self.assertEqual(radar.load_copilot_token(), 'legacy_token')
+
     def test_build_cn_abstract_fallback_is_not_raw_english(self):
         item = {
             'summary': 'This system reduces TTFT by 40% and improves throughput by 1.8x on long-context serving.',

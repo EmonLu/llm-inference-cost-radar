@@ -144,11 +144,18 @@ def fetch_url(url, retries=3):
 
 
 def load_copilot_token():
-    for key in ['COPILOT_GITHUB_TOKEN', 'GITHUB_TOKEN', 'GH_TOKEN']:
+    candidate_keys = [
+        'COPILOT_GITHUB_TOKEN',
+        'COPILOTGITHUBTOKEN',
+        'GITHUB_TOKEN',
+        'GH_TOKEN',
+    ]
+    env_text = ENV_PATH.read_text(encoding='utf-8', errors='ignore') if ENV_PATH.exists() else ''
+    for key in candidate_keys:
         env_value = os.environ.get(key, '').strip()
         if env_value:
             return env_value
-        value = re.search(rf'^(?!\s*#)\s*{re.escape(key)}=(.+)$', ENV_PATH.read_text(encoding='utf-8', errors='ignore') if ENV_PATH.exists() else '', re.M)
+        value = re.search(rf'^(?!\s*#)\s*{re.escape(key)}=(.+)$', env_text, re.M)
         if value:
             token = value.group(1).strip().strip('"').strip("'")
             if token:
