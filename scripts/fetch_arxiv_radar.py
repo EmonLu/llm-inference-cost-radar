@@ -620,6 +620,9 @@ def collect_arxiv(config, days_back):
         except urllib.error.URLError as e:
             print(f"[warn] arXiv query network error, skipping query {q['name']}: {e}")
             continue
+        except TimeoutError as e:
+            print(f"[warn] arXiv query timed out, skipping query {q['name']}: {e}")
+            continue
         time.sleep(3)
         for item in parse_arxiv_atom(xml_text, q['name']):
             if not is_recent(item['published_dt'], days_back):
@@ -710,6 +713,9 @@ def prepare_items(config, days_back):
             raise
     except urllib.error.URLError as e:
         print(f'[warn] arXiv collection failed with network error: {e}; continuing with feed sources only')
+        paper_candidates = []
+    except TimeoutError as e:
+        print(f'[warn] arXiv collection timed out: {e}; continuing with feed sources only')
         paper_candidates = []
     feed_candidates = collect_feeds(config, days_back)
     prepared_map = {}

@@ -241,6 +241,33 @@ class FetchArxivRadarTests(unittest.TestCase):
         self.assertEqual(len(items), 1)
         self.assertEqual(items[0]['title'], 'Recovered Paper')
 
+    def test_collect_arxiv_skips_timeout_query_and_keeps_other_results(self):
+        config = {
+            'max_results_per_query': 5,
+            'queries': [
+                {'name': 'q1', 'query': 'first'},
+                {'name': 'q2', 'query': 'second'},
+            ],
+        }
+        xml_ok = '''
+        <feed xmlns="http://www.w3.org/2005/Atom">
+          <entry>
+            <id>http://arxiv.org/abs/2605.00004v1</id>
+            <title>Recovered After Timeout</title>
+            <summary>Test summary</summary>
+            <published>2026-05-10T00:00:00Z</published>
+            <updated>2026-05-10T00:00:00Z</updated>
+            <author><name>Dave</name></author>
+            <category term="cs.AI" />
+          </entry>
+        </feed>
+        '''
+        with mock.patch.object(radar, 'arxiv_search', side_effect=[TimeoutError('read timed out'), xml_ok]):
+            with mock.patch.object(radar.time, 'sleep', return_value=None):
+                items = radar.collect_arxiv(config, days_back=30)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]['title'], 'Recovered After Timeout')
+
     def test_prepare_items_survives_arxiv_rate_limit(self):
         config = {'days_back': 3}
         feed_item = {
