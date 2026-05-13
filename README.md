@@ -15,56 +15,56 @@
 
 ## 最新更新
 
-- 日期: 2026-05-12
+- 日期: 2026-05-13
 - 今日新论文: 15
-- 今日新权威来源更新: 0
+- 今日新权威来源更新: 1
 - 本周精选论文: 25
-- 本周精选权威来源更新: 4
-- 日报: `papers/2026-05-12.md`
-- 周报: `digests/weekly-2026-05-12.md`
+- 本周精选权威来源更新: 3
+- 日报: `papers/2026-05-13.md`
+- 周报: `digests/weekly-2026-05-13.md`
 
 ## 今日最值得看
 
-- [Nautilus Compass: Black-box Persona Drift Detection for Production LLM Agents](https://arxiv.org/abs/2605.09863v1)
-  - 主题: Agent systems and multi-agent efficiency, Coding agent routing
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing，核心内容是《Nautilus Compass: Black-box Persona Drift Detection for Production LLM Agents》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，End-to-end reproduction cost is $3.50 (~14x cheaper than GPT-4o-judged stacks).
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：14x、56.6%。
-- [Scaling Mobile Agent Systems: From Capability Density to Collective Intelligence](https://arxiv.org/abs/2605.08124)
-  - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference，核心内容是《Scaling Mobile Agent Systems: From Capability Density to Collective Intelligence》在 arXiv cs.DC 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，arXiv:2605.08124v1 Announce Type: new Abstract: Mobile agent systems are emerging as a key paradigm for enabling intelligent applications on edge devices and in AIoT ecosystems.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [Uncovering Intra-expert Activation Sparsity for Efficient Mixture-of-Expert Model Execution](https://arxiv.org/abs/2605.08575)
+- [Rethinking LLMOps for Fraud and AML: Building a Compliance-Grade LLM Serving Stack](https://arxiv.org/abs/2605.11232)
   - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Uncovering Intra-expert Activation Sparsity for Efficient Mixture-of-Expert Model Execution》在 arXiv cs.LG 这一方向上的推进。围绕 MoE 模型推理/部署优化，强相关。从实验上看，Surprisingly, substantial intra-expert sparsity is readily available in existing pre-trained MoE models, without any modification to the activation function or model parameters, providing up to 90% sparsity within each expert without significant accuracy loss.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：90%。
-- [Sparsity Moves Computation: How FFN Architecture Reshapes Attention in Small Transformers](https://arxiv.org/abs/2605.09403)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference, LLM routing
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference、LLM routing，核心内容是《Sparsity Moves Computation: How FFN Architecture Reshapes Attention in Small Transformers》在 arXiv cs.LG 这一方向上的推进。围绕 MoE 模型推理/部署优化，强相关。从实验上看，We decompose this redistribution into reduced per-token FFN capacity and sparse partitioning across experts.
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Rethinking LLMOps for Fraud and AML: Building a Compliance-Grade LLM Serving Stack》在 arXiv cs.LG 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Across public-synthetic AML workloads and controlled serving benchmarks, workload-aware tuning improved throughput from 612-650 to 3,600 requests/hour, reduced P99 latency from 31-38 seconds to 6.4-8.7 seconds, and increased GPU utilization from 12% to 78%.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：38 s、8.7 s、12%。
+- [Ada-MK: Adaptive MegaKernel Optimization via Automated DAG-based Search for LLM Inference](https://arxiv.org/abs/2605.11581v1)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Ada-MK: Adaptive MegaKernel Optimization via Automated DAG-based Search for LLM Inference》在 arXiv API 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，On an NVIDIA L20, Ada-MK improves single-batch throughput by up to 23.6% over vanilla TensorRT-LLM and 50.2% over vLLM, achieving positive gains across all tested scenarios--the first industrial deployment of MegaKernel in a commercial online advertising system.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：23.6%、50.2%、50%。
+- [Patterns behind Chaos: Forecasting Data Movement for Efficient Large-Scale MoE LLM Inference](https://arxiv.org/abs/2510.05497)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Patterns behind Chaos: Forecasting Data Movement for Efficient Large-Scale MoE LLM Inference》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，We perform systematic analysis from both temporal and spatial perspectives and distill six key insights to guide the design of diverse serving systems.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [GenCellAgent: Generalizable, Training-Free Cellular Image Segmentation via Large Language Model Agents](https://arxiv.org/abs/2510.13896)
-  - 主题: Agent systems and multi-agent efficiency, Heterogeneous MoE inference, LLM routing
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Heterogeneous MoE inference、LLM routing，核心内容是《GenCellAgent: Generalizable, Training-Free Cellular Image Segmentation via Large Language Model Agents》在 arXiv cs.AI 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Across seven cell-segmentation benchmarks spanning diverse microscopy modalities (4,718 images), this routing consistently matches or exceeds the best individual tool on every dataset and outperforms all baselines in overall accuracy.
+- [Sieve: Dynamic Expert-Aware PIM Acceleration for Evolving Mixture-of-Experts Models](https://arxiv.org/abs/2605.11277v1)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Sieve: Dynamic Expert-Aware PIM Acceleration for Evolving Mixture-of-Experts Models》在 arXiv API 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Compared to state-of-the-art PIM systems for MoE, Sieve improves both throughput and interactivity by 1.3x, 1.3x, and 1.6x on Qwen3.5-397B-A17B, GPT-OSS-120B, and Qwen3-30B-A3B, respectively.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：1.3x、1.6x。
+- [SPECTRE: Hybrid Ordinary-Parallel Speculative Serving for Resource-Efficient LLM Inference](https://arxiv.org/abs/2605.08151)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《SPECTRE: Hybrid Ordinary-Parallel Speculative Serving for Resource-Efficient LLM Inference》在 arXiv cs.DC 这一方向上的推进。重点优化延迟，通常可带来更高性价比。从实验上看，Results show that SPECTRE consistently improves large-model serving throughput while causing only minor interference to the native workloads of tail-model services.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [RDKV: Rate-Distortion Bit Allocation for Joint Eviction and Quantization of the KV Cache](https://arxiv.org/abs/2605.08317)
-  - 主题: Cost-efficient LLM inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference，核心内容是《RDKV: Rate-Distortion Bit Allocation for Joint Eviction and Quantization of the KV Cache》在 arXiv cs.LG 这一方向上的推进。通过 KV cache 优化长上下文推理成本。从实验上看，Experiments on LongBench, RULER, and InfiniteBench show that RDKV outperforms the best evaluated baseline by 9.1% on average.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：9.1%、4.5x、1.9x。
-- [An Empirical Study of Multi-Agent Collaboration for Automated Research](https://arxiv.org/abs/2603.29632)
-  - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference，核心内容是《An Empirical Study of Multi-Agent Collaboration for Automated Research》在 arXiv cs.AI 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Utilizing a rigorously controlled, execution-based testbed equipped with Git worktree isolation and explicit global memory, we benchmark a single-agent baseline against two multi-agent paradigms: a subagent architecture (parallel exploration with post-hoc consolidation) and an agent team architecture (experts with pre-execution handoffs).
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [FLAME: Adaptive Mixture-of-Experts for Continual Multimodal Multi-Task Learning](https://arxiv.org/abs/2605.09355)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference, LLM routing
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference、LLM routing，核心内容是《FLAME: Adaptive Mixture-of-Experts for Continual Multimodal Multi-Task Learning》在 arXiv cs.LG 这一方向上的推进。围绕 MoE 模型推理/部署优化，强相关。从实验上看，However, neither regime alone suffices: the pretraining task set is never exhaustive, while bypassing joint training forfeits the transfer gains and efficiency among co-trainable tasks.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [Mixture-of-Top-k Attention: Efficient Attention via Scalable Fast Weights](https://arxiv.org/abs/2602.01219)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference, LLM routing
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference、LLM routing，核心内容是《Mixture-of-Top-k Attention: Efficient Attention via Scalable Fast Weights》在 arXiv cs.LG 这一方向上的推进。围绕 MoE 模型推理/部署优化，强相关。从实验上看，We conduct extensive experiments on vision tasks showing the superior effectiveness and efficiency of our MiTA, and also uncovering intriguing properties such as an emergent token-pruning effect and easy generalization from standard attention.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [CalBench: Evaluating Coordination-Privacy Trade-offs in Multi-Agent LLMs](https://arxiv.org/abs/2605.09823v1)
-  - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《CalBench: Evaluating Coordination-Privacy Trade-offs in Multi-Agent LLMs》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Unlike multi-agent benchmarks where a single capable agent can often substitute for the group, CalBench is inherently decentralized: no agent has access to another agent's private calendar, yet agents must still reach mutually consistent decisions over shared meeting scheduling.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
+- [DisagMoE: Computation-Communication overlapped MoE Training via Disaggregated AF-Pipe Parallelism](https://arxiv.org/abs/2605.11005)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《DisagMoE: Computation-Communication overlapped MoE Training via Disaggregated AF-Pipe Parallelism》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，DisagMoE is implemented on Megatron-LM, and evaluation shows that DisagMoE improves training efficiency across multiple MoE models with up to 1.8x speedup on 16-node 8xH800 clusters.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：1.8x、8x。
+- [Analytical Provisioning for Attention-FFN Disaggregated LLM Serving under Stochastic Workloads](https://arxiv.org/abs/2601.21351)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Analytical Provisioning for Attention-FFN Disaggregated LLM Serving under Stochastic Workloads》在 arXiv cs.LG 这一方向上的推进。通过 KV cache 优化长上下文推理成本。从实验上看，A trace-calibrated AFD simulator supports the framework across workloads: the predicted optimal ratio matches the simulation-optimal within 10%.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：10%。
+- [DWDP: Distributed Weight Data Parallelism for High-Performance LLM Inference on NVL72](https://arxiv.org/abs/2604.01621)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《DWDP: Distributed Weight Data Parallelism for High-Performance LLM Inference on NVL72》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Implemented in TensorRT-LLM and evaluated with DeepSeek-R1 on GB200 NVL72, DWDP improves end-to-end output TPS/GPU by 8.8% at comparable TPS/user in the 20-100 TPS/user serving range under 8K input sequence length and 1K output sequence length.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：8.8%。
+- [CATS: Cascaded Adaptive Tree Speculation for Memory-Limited LLM Inference Acceleration](https://arxiv.org/abs/2605.11186v1)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《CATS: Cascaded Adaptive Tree Speculation for Memory-Limited LLM Inference Acceleration》在 arXiv API 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，CATS can achieve a wall-clock speedup of up to 5.08x with no degradation in generation quality, outperforming the SOTA method by up to 1.45x under edge memory constraints.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：5.08x、1.45x。
+- [Fast MoE Inference via Predictive Prefetching and Expert Replication](https://arxiv.org/abs/2605.11537v1)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Fast MoE Inference via Predictive Prefetching and Expert Replication》在 arXiv API 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Experimental evaluations conducted on large-scale MoE models, including Switch-base-128 and Switch-base-256, demonstrate that our method achieves near-complete GPU utilization (approx 100%), leading to upto 3x improvement in inference speed while preserving approximately 90-95% of the performance of baseline architectures
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：100%、3x、95%。
 
 ## 配置
 
