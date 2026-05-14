@@ -15,56 +15,56 @@
 
 ## 最新更新
 
-- 日期: 2026-05-13
+- 日期: 2026-05-14
 - 今日新论文: 15
-- 今日新权威来源更新: 1
+- 今日新权威来源更新: 0
 - 本周精选论文: 25
 - 本周精选权威来源更新: 3
-- 日报: `papers/2026-05-13.md`
-- 周报: `digests/weekly-2026-05-13.md`
+- 日报: `papers/2026-05-14.md`
+- 周报: `digests/weekly-2026-05-14.md`
 
 ## 今日最值得看
 
-- [Rethinking LLMOps for Fraud and AML: Building a Compliance-Grade LLM Serving Stack](https://arxiv.org/abs/2605.11232)
+- [KVServe: Service-Aware KV Cache Compression for Communication-Efficient Disaggregated LLM Serving](https://arxiv.org/abs/2605.13734)
   - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Rethinking LLMOps for Fraud and AML: Building a Compliance-Grade LLM Serving Stack》在 arXiv cs.LG 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Across public-synthetic AML workloads and controlled serving benchmarks, workload-aware tuning improved throughput from 612-650 to 3,600 requests/hour, reduced P99 latency from 31-38 seconds to 6.4-8.7 seconds, and increased GPU utilization from 12% to 78%.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：38 s、8.7 s、12%。
-- [Ada-MK: Adaptive MegaKernel Optimization via Automated DAG-based Search for LLM Inference](https://arxiv.org/abs/2605.11581v1)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Ada-MK: Adaptive MegaKernel Optimization via Automated DAG-based Search for LLM Inference》在 arXiv API 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，On an NVIDIA L20, Ada-MK improves single-batch throughput by up to 23.6% over vanilla TensorRT-LLM and 50.2% over vLLM, achieving positive gains across all tested scenarios--the first industrial deployment of MegaKernel in a commercial online advertising system.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：23.6%、50.2%、50%。
-- [Patterns behind Chaos: Forecasting Data Movement for Efficient Large-Scale MoE LLM Inference](https://arxiv.org/abs/2510.05497)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Patterns behind Chaos: Forecasting Data Movement for Efficient Large-Scale MoE LLM Inference》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，We perform systematic analysis from both temporal and spatial perspectives and distill six key insights to guide the design of diverse serving systems.
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《KVServe: Service-Aware KV Cache Compression for Communication-Efficient Disaggregated LLM Serving》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Integrated into vLLM and evaluated across datasets, models, GPUs and networks, KVServe achieves up to $9.13\times$ JCT speedup in PD-separated serving and up to $32.8\times$ TTFT reduction in KV-disaggregated serving.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [Sieve: Dynamic Expert-Aware PIM Acceleration for Evolving Mixture-of-Experts Models](https://arxiv.org/abs/2605.11277v1)
+- [MinT: Managed Infrastructure for Training and Serving Millions of LLMs](https://arxiv.org/abs/2605.13779)
   - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Sieve: Dynamic Expert-Aware PIM Acceleration for Evolving Mixture-of-Experts Models》在 arXiv API 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Compared to state-of-the-art PIM systems for MoE, Sieve improves both throughput and interactivity by 1.3x, 1.3x, and 1.6x on Qwen3.5-397B-A17B, GPT-OSS-120B, and Qwen3-30B-A3B, respectively.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：1.3x、1.6x。
-- [SPECTRE: Hybrid Ordinary-Parallel Speculative Serving for Resource-Efficient LLM Inference](https://arxiv.org/abs/2605.08151)
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《MinT: Managed Infrastructure for Training and Serving Millions of LLMs》在 arXiv cs.DC 这一方向上的推进。涉及 CPU 侧参与推理或加速。从实验上看，Scale Down moves only the exported LoRA adapter, which can be under 1% of base-model size in rank-1 settings; adapter-only handoff reduces the measured step by 18.3x on a 4B dense model and 2.85x on a 30B MoE, while concurrent multi-policy GRPO shortens wall time by 1.77x and 1.45x without raising peak memory.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：1%、1 s、18.3x。
+- [MultiPath Memory Access: Breaking Host-GPU Bandwidth Bottlenecks in LLM Services](https://arxiv.org/abs/2512.16056)
   - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《SPECTRE: Hybrid Ordinary-Parallel Speculative Serving for Resource-Efficient LLM Inference》在 arXiv cs.DC 这一方向上的推进。重点优化延迟，通常可带来更高性价比。从实验上看，Results show that SPECTRE consistently improves large-model serving throughput while causing only minor interference to the native workloads of tail-model services.
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《MultiPath Memory Access: Breaking Host-GPU Bandwidth Bottlenecks in LLM Services》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，On an 8-GPU NVIDIA H20 server, MMA achieves 245 GB/s peak host-to-GPU bandwidth, a 4.62x improvement over native CUDA copies, and reduces TTFT for KV cache fetching by 1.14-2.38x and model wake-up/switching latency by 1.12-2.48x.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：20 s、245 GB、4.62x。
+- [REAP the Experts: Why Pruning Prevails for One-Shot MoE compression](https://arxiv.org/abs/2510.13999)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference, LLM routing
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference、LLM routing，核心内容是《REAP the Experts: Why Pruning Prevails for One-Shot MoE compression》在 arXiv cs.LG 这一方向上的推进。重点优化延迟，通常可带来更高性价比。从实验上看，Across a diverse set of SMoE models ranging from 20B to 1T parameters, REAP consistently outperforms merging and other pruning methods on generative benchmarks, especially at 50% compression.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：50%。
+- [An Agentic AI Framework with Large Language Models and Chain-of-Thought for UAV-Assisted Logistics Scheduling with Mobile Edge Computing](https://arxiv.org/abs/2605.13221v1)
+  - 主题: Agent systems and multi-agent efficiency, Heterogeneous MoE inference, LLM routing
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Heterogeneous MoE inference、LLM routing，核心内容是《An Agentic AI Framework with Large Language Models and Chain-of-Thought for UAV-Assisted Logistics Scheduling with Mobile Edge Computing》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Simulation results show that the proposed framework yields more consistent formulations, while the hierarchical PPO achieves full product collection in 99.6% of the last 500 episodes and maintains a 100% deadline satisfaction rate, with more stable performance than the advantage actor-critic approach.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：99.6%、100%。
+- [EnergyLens: Interpretable Closed-Form Energy Models for Multimodal LLM Inference Serving](https://arxiv.org/abs/2605.10556v2)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《EnergyLens: Interpretable Closed-Form Energy Models for Multimodal LLM Inference Serving》在 arXiv API 这一方向上的推进。强调异构硬件协同推理。从实验上看，Fitted from as few as 50 profiling measurements, EnergyLens achieves 88.2% Top-1 configuration selection accuracy across many evaluation scenarios compared to 60.9% for the closest prior analytical baseline, matches the predictive accuracy of ensemble ML methods with 10x fewer profiling samples, and extrapolates reliably to unseen batch sizes and hardware platforms without structural modification, making it a practical, interpretable tool for energy-optimal LLM deployment.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：88.2%、60.9%、10x。
+- [AB-Sparse: Sparse Attention with Adaptive Block Size for Accurate and Efficient Long-Context Inference](https://arxiv.org/abs/2605.12110v1)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《AB-Sparse: Sparse Attention with Adaptive Block Size for Accurate and Efficient Long-Context Inference》在 arXiv API 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Evaluation results demonstrate that AB-Sparse achieves an accuracy improvement of up to 5.43% over existing block sparse attention baselines without throughput overhead.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：5.43%。
+- [PipeSD: An Efficient Cloud-Edge Collaborative Pipeline Inference Framework with Speculative Decoding](https://arxiv.org/abs/2605.13319)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《PipeSD: An Efficient Cloud-Edge Collaborative Pipeline Inference Framework with Speculative Decoding》在 arXiv cs.DC 这一方向上的推进。涉及 KV/参数/专家的卸载策略，可节约显存或成本。从实验上看，Results show that PipeSD consistently outperforms state-of-the-art baselines, achieving 1.16x-2.16x speedup and reducing energy consumption by 14.3%-25.3%.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：1.16x、2.16x、14.3%。
+- [Slicing and Dicing: Configuring Optimal Mixtures of Experts](https://arxiv.org/abs/2605.11689)
+  - 主题: Heterogeneous MoE inference, LLM routing
+  - 中文解读: 这项工作主要关注Heterogeneous MoE inference、LLM routing，核心内容是《Slicing and Dicing: Configuring Optimal Mixtures of Experts》在 arXiv cs.CL 这一方向上的推进。强调异构硬件协同推理。从实验上看，Overall, our results suggest a simpler recipe: focus on expert count and granularity, other choices have minimal effect on final quality.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [DisagMoE: Computation-Communication overlapped MoE Training via Disaggregated AF-Pipe Parallelism](https://arxiv.org/abs/2605.11005)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《DisagMoE: Computation-Communication overlapped MoE Training via Disaggregated AF-Pipe Parallelism》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，DisagMoE is implemented on Megatron-LM, and evaluation shows that DisagMoE improves training efficiency across multiple MoE models with up to 1.8x speedup on 16-node 8xH800 clusters.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：1.8x、8x。
-- [Analytical Provisioning for Attention-FFN Disaggregated LLM Serving under Stochastic Workloads](https://arxiv.org/abs/2601.21351)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Analytical Provisioning for Attention-FFN Disaggregated LLM Serving under Stochastic Workloads》在 arXiv cs.LG 这一方向上的推进。通过 KV cache 优化长上下文推理成本。从实验上看，A trace-calibrated AFD simulator supports the framework across workloads: the predicted optimal ratio matches the simulation-optimal within 10%.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：10%。
-- [DWDP: Distributed Weight Data Parallelism for High-Performance LLM Inference on NVL72](https://arxiv.org/abs/2604.01621)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《DWDP: Distributed Weight Data Parallelism for High-Performance LLM Inference on NVL72》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Implemented in TensorRT-LLM and evaluated with DeepSeek-R1 on GB200 NVL72, DWDP improves end-to-end output TPS/GPU by 8.8% at comparable TPS/user in the 20-100 TPS/user serving range under 8K input sequence length and 1K output sequence length.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：8.8%。
-- [CATS: Cascaded Adaptive Tree Speculation for Memory-Limited LLM Inference Acceleration](https://arxiv.org/abs/2605.11186v1)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《CATS: Cascaded Adaptive Tree Speculation for Memory-Limited LLM Inference Acceleration》在 arXiv API 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，CATS can achieve a wall-clock speedup of up to 5.08x with no degradation in generation quality, outperforming the SOTA method by up to 1.45x under edge memory constraints.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：5.08x、1.45x。
-- [Fast MoE Inference via Predictive Prefetching and Expert Replication](https://arxiv.org/abs/2605.11537v1)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Fast MoE Inference via Predictive Prefetching and Expert Replication》在 arXiv API 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Experimental evaluations conducted on large-scale MoE models, including Switch-base-128 and Switch-base-256, demonstrate that our method achieves near-complete GPU utilization (approx 100%), leading to upto 3x improvement in inference speed while preserving approximately 90-95% of the performance of baseline architectures
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：100%、3x、95%。
+- [Beyond Inefficiency: Systemic Costs of Incivility in Multi-Agent Monte Carlo Simulations](https://arxiv.org/abs/2605.11789v1)
+  - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference，核心内容是《Beyond Inefficiency: Systemic Costs of Incivility in Multi-Agent Monte Carlo Simulations》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，The convergence latency of 25% reported in the previous study was confirmed.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：25%。
 
 ## 配置
 
