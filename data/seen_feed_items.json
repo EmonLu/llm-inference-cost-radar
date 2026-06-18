@@ -3,6 +3,7 @@
   "https://pytorch.org/?p=104471",
   "https://pytorch.org/?p=106205",
   "https://pytorch.org/?p=108905",
+  "https://pytorch.org/?p=112094",
   "https://pytorch.org/?p=76581",
   "https://pytorch.org/?p=79236",
   "https://pytorch.org/?p=82879",
@@ -27,5 +28,6 @@
   "https://vllm.ai/blog/2026-06-16-vllm-sr-fusion-api",
   "https://vllm.ai/blog/mooncake-store",
   "https://vllm.ai/blog/turboquant",
-  "https://vllm.ai/blog/vllm-tops-artificial-analysis"
+  "https://vllm.ai/blog/vllm-tops-artificial-analysis",
+  "https://www.lmsys.org/blog/2026-06-17-ling-2-6-tpu/"
 ]
