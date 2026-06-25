@@ -15,55 +15,55 @@
 
 ## 最新更新
 
-- 日期: 2026-06-24
+- 日期: 2026-06-25
 - 今日新论文: 15
-- 今日新权威来源更新: 1
+- 今日新权威来源更新: 0
 - 本周精选论文: 25
-- 本周精选权威来源更新: 3
-- 日报: `papers/2026-06-24.md`
-- 周报: `digests/weekly-2026-06-24.md`
+- 本周精选权威来源更新: 2
+- 日报: `papers/2026-06-25.md`
+- 周报: `digests/weekly-2026-06-25.md`
 
 ## 今日最值得看
 
-- [A 35B Hybrid-Attention Mixture-of-Experts Model on a 6GB 2011 GPU: Hand-Written 4-bit CUDA Inference for Fermi](https://arxiv.org/abs/2606.24031v1)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference, LLM routing
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference、LLM routing，核心内容是《A 35B Hybrid-Attention Mixture-of-Experts Model on a 6GB 2011 GPU: Hand-Written 4-bit CUDA Inference for Fermi》在 arXiv API 这一方向上的推进。涉及 CPU 侧参与推理或加速。从实验上看，On a 947-token prompt we reduce prefill latency from 57.2\,s to 37.5\,s ($-34\%$) through expert pinning, single-pass prefill, and NUMA interleaving, and we raise decode throughput from 2.8 to 8.6\,\tps{} ($\approx 3\times$) with the integer-SIMD kernel.
+- [SplitZip: Ultra Fast Lossless KV Compression for Disaggregated LLM Serving](https://arxiv.org/abs/2605.01708)
+  - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference, Heterogeneous MoE inference, LLM routing
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《SplitZip: Ultra Fast Lossless KV Compression for Disaggregated LLM Serving》在 arXiv cs.DC 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，End-to-end transfer experiments show up to $1.32\times$ speedup for BF16 KV cache transfer, $1.30\times$ speedup for TTFT, and $1.23\times$ increase in Request Throughput.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [CrossPool: Efficient Multi-LLM Serving for Cold MoE Models through KV-Cache and Weight Disaggregation](https://arxiv.org/abs/2606.24506)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《CrossPool: Efficient Multi-LLM Serving for Cold MoE Models through KV-Cache and Weight Disaggregation》在 arXiv cs.DC 这一方向上的推进。涉及 CPU 侧参与推理或加速。从实验上看，With efficient GPU memory pooling, CrossPool underpins bursty long-context requests and outperforms the state-of-the-art kvcached-based multi-LLM serving system, reducing P99 TBT by up to $10.4\times$.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [Collaborative Lossless LLM Inference Serving with Offloading-based Pipeline Parallelism on Edge Devices](https://arxiv.org/abs/2512.21835)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Collaborative Lossless LLM Inference Serving with Offloading-based Pipeline Parallelism on Edge Devices》在 arXiv cs.DC 这一方向上的推进。强调异构硬件协同推理。从实验上看，Extensive experiments demonstrate that LOIP achieves 8.8$\times$$\sim$20.3$\times$ speedups over the SOTA baselines under different bandwidth conditions and request patterns without compromising model accuracy.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [VoltanaLLM: Energy-Efficient and SLO-Aware Disaggregated LLM Serving via Adaptive Frequency Control and State-Space Routing](https://arxiv.org/abs/2509.04827)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference, LLM routing
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference、LLM routing，核心内容是《VoltanaLLM: Energy-Efficient and SLO-Aware Disaggregated LLM Serving via Adaptive Frequency Control and State-Space Routing》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Our results show VoltanaLLM reduces end-to-end energy by up to 36.3% versus a static max-frequency baseline while maintaining high SLO attainment, and generalizes to newer GPUs.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：36.3%。
-- [SkyChain Intelligence: A Blockchain-Secured Multi-Agent DRL Framework for Low-Altitude Embodied Artificial Intelligence](https://arxiv.org/abs/2606.24193)
+- [The Hitchhiker's Guide to Agentic AI: From Foundations to Systems](https://arxiv.org/abs/2606.24937v1)
   - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《SkyChain Intelligence: A Blockchain-Secured Multi-Agent DRL Framework for Low-Altitude Embodied Artificial Intelligence》在 arXiv cs.DC 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Extensive simulations demonstrate that our framework outperforms state-of-the-art baselines in task completion latency and energy consumption, while achieving a 94.1% task completion rate in the baseline scenario and stable convergence within 300 training episodes.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：94.1%。
-- [Does Mixture-of-Experts Actually Help Inference on Consumer and Edge Hardware? An Empirical Study](https://arxiv.org/abs/2606.21428)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference, LLM routing
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference、LLM routing，核心内容是《Does Mixture-of-Experts Actually Help Inference on Consumer and Edge Hardware? An Empirical Study》在 arXiv cs.AI 这一方向上的推进。围绕 MoE 模型推理/部署优化，强相关。从实验上看，We benchmark OLMoE-1B-7B (1.3 B active of 6.9 B total) against three dense baselines on an Apple M2 Pro and an NVIDIA Jetson Orin Nano 8 GB through \texttt{llama.cpp}, measuring throughput, memory, and on-device energy.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：8 GB、9%。
-- [The Serialized Bridge: Understanding and Recovering LLM Serving Performance under Blackwell GPU Confidential Computing](https://arxiv.org/abs/2606.23969)
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《The Hitchhiker's Guide to Agentic AI: From Foundations to Systems》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，The book concludes with agent development frameworks, agentic UI design, evaluation methodology for agentic tasks, and production deployment.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
+- [Six Times to Spare: Characterizing GPU-Accelerated 5G LDPC Decoding for Edge-RSU Communications](https://arxiv.org/abs/2602.04652)
   - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《The Serialized Bridge: Understanding and Recovering LLM Serving Performance under Blackwell GPU Confidential Computing》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Yet LLM serving under Intel TDX plus GPU-CC still loses 13-27% of throughput, and KV-cache restore latency can more than double.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：27%、131%、34x。
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Six Times to Spare: Characterizing GPU-Accelerated 5G LDPC Decoding for Edge-RSU Communications》在 arXiv cs.DC 这一方向上的推进。涉及 CPU 侧参与推理或加速。从实验上看，Results show that GPU acceleration substantially increases LDPC throughput, reduces amortized decode service time, and shifts compute pressure away from the CPU, thereby improving the feasibility of meeting edge-RSU timing budgets under heavy parallel workloads.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
+- [A Hybrid CNN-LSTM Intrusion Detection Framework for Cybersecurity in Smart Renewable Energy Grids](https://arxiv.org/abs/2606.25200)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《A Hybrid CNN-LSTM Intrusion Detection Framework for Cybersecurity in Smart Renewable Energy Grids》在 arXiv cs.LG 这一方向上的推进。涉及 CPU 侧参与推理或加速。从实验上看，The model achieves a real-time inference throughput of 27,800 flows/s on GPU and 0.082 ms/sample CPU latency in FP32,, with INT8 quantization providing an additional 3.1 x speedup at 0.3% accuracy loss, confirming deployment feasibility on resource-constrained IEDs with <128MB memory and establishing a deployable deep-learning framework for securing next-generation renewable energy smart grid infrastructure.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：0.082 ms、3.1 x、0.3%。
 - [Accelerating Disaggregated RL for Visual Generative LLMs with Diffusion-Based Parallelism and Trainer-Assisted Generation](https://arxiv.org/abs/2606.24369)
   - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
   - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Accelerating Disaggregated RL for Visual Generative LLMs with Diffusion-Based Parallelism and Trainer-Assisted Generation》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Experimental results show that DigenRL achieves 1.56-2.10x throughput improvements over state-of-the-art diffusion RL systems, veRL-Omni and GenRL.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：2.10x。
-- [Systematic Exploration of 4-Expert Heterogeneous Mixture-of-Experts via Automated Pipeline Search](https://arxiv.org/abs/2606.23739)
-  - 主题: Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Heterogeneous MoE inference，核心内容是《Systematic Exploration of 4-Expert Heterogeneous Mixture-of-Experts via Automated Pipeline Search》在 arXiv cs.LG 这一方向上的推进。强调异构硬件协同推理。从实验上看，A critical finding emerged from the campaign: due to alphabetical enumeration via itertools.combinations, the entire explored search space (4.8% of the theoretical 23,751 possible 4-family combinations) is anchored to a single family, AirNet.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：4.8%。
-- [Sakana Fugu Technical Report](https://arxiv.org/abs/2606.21228)
-  - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference，核心内容是《Sakana Fugu Technical Report》在 arXiv cs.LG 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，We release two models: Fugu, which balances performance with latency for everyday use, and Fugu-Ultra, which prioritizes answer quality on the hardest problems.
+- [Agentic evolution of physically constrained foundation models](https://arxiv.org/abs/2606.25532)
+  - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Agentic evolution of physically constrained foundation models》在 arXiv cs.LG 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Applied to the extreme testbed of foundation model deployment, the engine evolved two hardware-aware compression methodologies surpassing human-engineered heuristics: Q-Enhance mitigates long-context accuracy loss in dense models, and MoE-Salient-AQ outperforms state-of-the-art manual sparse Mixture-of-Experts designs by 3.7% at sub-3-bit regimes.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：3.7%、100 s、75%。
+- [JetSpec: Breaking the Scaling Ceiling of Speculative Decoding with Parallel Tree Drafting](https://arxiv.org/abs/2606.18394)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《JetSpec: Breaking the Scaling Ceiling of Speculative Decoding with Parallel Tree Drafting》在 arXiv cs.CL 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，On H100 GPUs, JetSpec achieves up to 9.64x speedup on MATH-500 and 4.58x on open-ended conversational workloads, with further latency gains demonstrated through vLLM integration under realistic serving loads.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：9.64x、4.58x。
+- [Speculation at a Distance: Where Edge-Cloud Speculative Decoding Actually Pays Off](https://arxiv.org/abs/2606.25091)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Speculation at a Distance: Where Edge-Cloud Speculative Decoding Actually Pays Off》在 arXiv cs.DC 这一方向上的推进。重点优化延迟，通常可带来更高性价比。从实验上看，Against cloud autoregressive decoding, DSD can reduce latency only inside a bounded window given the target-model speed, acceptance rate, and RTT.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
+- [Agent-as-a-Router: Agentic Model Routing for Coding Tasks](https://arxiv.org/abs/2606.22902v2)
+  - 主题: Agent systems and multi-agent efficiency, LLM routing
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、LLM routing，核心内容是《Agent-as-a-Router: Agentic Model Routing for Coding Tasks》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，However, we identify the performance bottleneck for these routers as information deficit: simply augmenting a vanilla LLM router with performance statistics at the task-dimension level yields a 15.3% relative gain, surpassing a heuristic router built on the same dimension-level priors.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：15.3%。
+- [How Modular Is a Frontier Mixture-of-Experts? A Pre-registered Causal Test in Which Apparent Expert Modularity Mostly Dissolves](https://arxiv.org/abs/2606.25092)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference, LLM routing
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference、LLM routing，核心内容是《How Modular Is a Frontier Mixture-of-Experts? A Pre-registered Causal Test in Which Apparent Expert Modularity Mostly Dissolves》在 arXiv cs.LG 这一方向上的推进。围绕 MoE 模型推理/部署优化，强相关。从实验上看，We release the atlas and ablation data.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
 
 ## 配置
