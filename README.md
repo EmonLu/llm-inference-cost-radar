@@ -15,27 +15,35 @@
 
 ## 最新更新
 
-- 日期: 2026-07-04
-- 今日新论文: 3
+- 日期: 2026-07-05
+- 今日新论文: 5
 - 今日新权威来源更新: 0
 - 本周精选论文: 25
 - 本周精选权威来源更新: 2
-- 日报: `papers/2026-07-04.md`
-- 周报: `digests/weekly-2026-07-04.md`
+- 日报: `papers/2026-07-05.md`
+- 周报: `digests/weekly-2026-07-05.md`
 
 ## 今日最值得看
 
-- [MxGLUT: A Reconfigurable LUT-Centric Broadcast Dataflow Accelerator for Mixed-Precision GEMM](https://arxiv.org/abs/2607.01607v1)
-  - 主题: Cost-efficient LLM inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference，核心内容是《MxGLUT: A Reconfigurable LUT-Centric Broadcast Dataflow Accelerator for Mixed-Precision GEMM》在 arXiv API 这一方向上的推进。重点优化延迟，通常可带来更高性价比。从实验上看，Across the Llama family, MxGLUT achieves up to $2.16\times$ and $1.49\times$ latency speedup, and reduces normalized energy to $0.44\times$ and $0.71\times$ in prefill and decode, respectively, with at most $1.70\%$ perplexity increase.
+- [ContextSniper: AntTrail's Token-Efficient Code Memory for Repository-Level Program Repair](https://arxiv.org/abs/2607.01916v1)
+  - 主题: Agent systems and multi-agent efficiency, Coding agent routing, Cost-efficient LLM inference
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing、Cost-efficient LLM inference，核心内容是《ContextSniper: AntTrail's Token-Efficient Code Memory for Repository-Level Program Repair》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，ContextSniper reduces total token use by 51.5% and logged cost by 36.4% for OpenClaw, and reduces total token use by 38.9% and estimated cost by 27.3% for Claude Code.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：51.5%、36.4%、38.9%。
+- [Reasoning effort, not tool access, buys first-try reliability in agentic code generation: an observational study](https://arxiv.org/abs/2607.02436v1)
+  - 主题: Coding agent routing, Cost-efficient LLM inference
+  - 中文解读: 这项工作主要关注Coding agent routing、Cost-efficient LLM inference，核心内容是《Reasoning effort, not tool access, buys first-try reliability in agentic code generation: an observational study》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Capability tier dominated: frontier models clustered near the ceiling while a low cost local model fell to 24 to 37 points.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [BaseRT: Best-in-Class LLM Inference on Apple Silicon via Native Metal](https://arxiv.org/abs/2607.00501v1)
-  - 主题: Cost-efficient LLM inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference，核心内容是《BaseRT: Best-in-Class LLM Inference on Apple Silicon via Native Metal》在 arXiv API 这一方向上的推进。重点优化延迟，通常可带来更高性价比。从实验上看，BaseRT achieves up to 1.56x higher decode throughput than llama.cpp and up to 1.35x higher than MLX, with substantially larger margins on prefill for mixture-of-experts models, delivering consistent best-in-class throughput from sub-1B to 30B parameter models.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：1.56x、1.35x。
-- [DecompRL: Solving Harder Problems by Learning Modular Code Generation](https://arxiv.org/abs/2607.02390v1)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《DecompRL: Solving Harder Problems by Learning Modular Code Generation》在 arXiv API 这一方向上的推进。涉及 CPU 侧参与推理或加速。从实验上看，Repeated sampling scales test-time compute but GPU cost grows linearly with attempts, while reinforcement learning (RL) with verifiable rewards improves single-attempt accuracy at the expense of sample diversity.
+- [TestEvo-Bench: An Executable and Live Benchmark for Test and Code Co-Evolution](https://arxiv.org/abs/2607.02469v1)
+  - 主题: Coding agent routing
+  - 中文解读: 这项工作主要关注Coding agent routing，核心内容是《TestEvo-Bench: An Executable and Live Benchmark for Test and Code Co-Evolution》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Results show that they achieve up to 77.5% success rate on test generation and 74.6% on test update.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：77.5%、74.6%。
+- [PACE: A Proxy for Agentic Capability Evaluation](https://arxiv.org/abs/2607.02032v1)
+  - 主题: Agent systems and multi-agent efficiency, LLM routing
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、LLM routing，核心内容是《PACE: A Proxy for Agentic Capability Evaluation》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Experiments across 14 models, 4 agentic benchmarks, and 19 non-agentic benchmarks show that PACE-Bench predicts agentic scores with leave-one-out cross-validation (LOOCV) mean absolute error (MAE) under 4%, Spearman correlation above 0.80, and pairwise model-ranking accuracy around 85%, all at much less than 1% of the full agentic evaluation cost.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：4%、85%、1%。
+- [SkillCoach: Self-Evolving Rubrics for Evaluating and Enhancing Agentic Skill-Use](https://arxiv.org/abs/2607.01874v1)
+  - 主题: Agent systems and multi-agent efficiency
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency，核心内容是《SkillCoach: Self-Evolving Rubrics for Evaluating and Enhancing Agentic Skill-Use》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Experiments show that evolved rubrics substantially improve evaluation quality, expose failures hidden by final accuracy, and provide stronger supervision signals than outcome-only filtering for enhancing agentic skill-use.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
 
 ## 配置
