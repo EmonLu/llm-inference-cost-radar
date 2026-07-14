@@ -15,56 +15,56 @@
 
 ## 最新更新
 
-- 日期: 2026-07-13
+- 日期: 2026-07-14
 - 今日新论文: 15
 - 今日新权威来源更新: 0
 - 本周精选论文: 25
 - 本周精选权威来源更新: 1
-- 日报: `papers/2026-07-13.md`
-- 周报: `digests/weekly-2026-07-13.md`
+- 日报: `papers/2026-07-14.md`
+- 周报: `digests/weekly-2026-07-14.md`
 
 ## 今日最值得看
 
-- [STEEL: Sparsity-Aware Fused Attention for Energy-Efficient Long-Sequence Inference on AMD's XDNA NPU](https://arxiv.org/abs/2607.09385v1)
-  - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《STEEL: Sparsity-Aware Fused Attention for Energy-Efficient Long-Sequence Inference on AMD's XDNA NPU》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Experimental results show that STEEL reduces energy consumption by an average of 9.17x and 1.75x relative to CPU and GPU baselines, respectively.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：9.17x、1.75x、9.6x。
-- [BlockServe: Block-Grained Continuous Batching for High-Throughput Diffusion LLM Serving](https://arxiv.org/abs/2607.08930)
+- [Automated Tensor Scheduling for Hybrid CPU-GPU LLM Inference on Consumer Devices](https://arxiv.org/abs/2607.10183v1)
   - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《BlockServe: Block-Grained Continuous Batching for High-Throughput Diffusion LLM Serving》在 arXiv cs.LG 这一方向上的推进。强调异构硬件协同推理。从实验上看，On Dream and LLaDA across five benchmarks, BlockServe achieves 1.9--10.6$\times$ throughput over Fast-dLLM with comparable generation quality, establishing block-grained scheduling as a foundation for high-throughput offline dLLM inference.
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Automated Tensor Scheduling for Hybrid CPU-GPU LLM Inference on Consumer Devices》在 arXiv API 这一方向上的推进。涉及 CPU 侧参与推理或加速。从实验上看，Compared with existing systems, ATSInfer improves prefill throughput by up to 1.94$\times$ and decode throughput by up to 3.29$\times$, while also increasing GPU utilization and making more effective use of PCIe bandwidth.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [Director: Accelerating Distributed MoE Serving via Online Proactive Expert Placement](https://arxiv.org/abs/2607.08782)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Director: Accelerating Distributed MoE Serving via Online Proactive Expert Placement》在 arXiv cs.LG 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Finally, we implement a prototype and demonstrate, through extensive experiments, a reduction in end-to-end latency of $11\sim55\%$ for popular MoE models (e.g., Mistral, DeepSeek and Qwen) compared to existing work.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [Sticky Routing: Training MoE Models for Memory-Efficient Inference](https://arxiv.org/abs/2607.08780)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference, LLM routing
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference、LLM routing，核心内容是《Sticky Routing: Training MoE Models for Memory-Efficient Inference》在 arXiv cs.CL 这一方向上的推进。围绕 MoE 模型推理/部署优化，强相关。从实验上看，Experiments on small-scale MoE language models show that StickyMoE reduces the expert switch rate by up to 60% with less than 4% perplexity degradation, Pareto-dominating post-hoc fine-tuning on the quality-locality frontier.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：60%、4%。
-- [The Serialized Bridge: Understanding and Recovering LLM Serving Performance under Blackwell GPU Confidential Computing](https://arxiv.org/abs/2606.23969)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《The Serialized Bridge: Understanding and Recovering LLM Serving Performance under Blackwell GPU Confidential Computing》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Yet LLM serving under Intel TDX plus GPU-CC still loses 13-27% of throughput, and KV-cache restore latency can more than double.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：27%、131%、34x。
-- [KV-PRM: Efficient Process Reward Modeling via KV-Cache Transfer for Multi-Agent Test-Time Scaling](https://arxiv.org/abs/2607.09153v1)
+- [[AAFLOW+] Stateful Operator Abstraction with Zero-Copy Distributed KV Cache Orchestration for Multi-Agent Workflows](https://arxiv.org/abs/2607.10987v1)
   - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference，核心内容是《KV-PRM: Efficient Process Reward Modeling via KV-Cache Transfer for Multi-Agent Test-Time Scaling》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Empirically, across the MATH, GSM8K, and AIME benchmarks, KV-PRM matches or strictly outperforms text-PRMs under various TTS methods such as Beam Search, MCTS, and Weighted Voting, with up to a 5,000x reduction in scoring FLOPs, a 37x reduction in latency, and a 34x reduction in per-sequence memory footprint compared to text-based PRMs.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：000x、37x、34x。
-- [Leveraging Multi-Agent System (MAS) and Fine-Tuned Small Language Models (SLMs) for Automated Telecom Network Troubleshooting](https://arxiv.org/abs/2511.00651)
-  - 主题: Agent systems and multi-agent efficiency, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Heterogeneous MoE inference，核心内容是《Leveraging Multi-Agent System (MAS) and Fine-Tuned Small Language Models (SLMs) for Automated Telecom Network Troubleshooting》在 arXiv cs.CL 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Experimental results demonstrate that the proposed framework significantly accelerates troubleshooting automation across both Radio Access Network (RAN) and Core network domains.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [Heterogeneous Information-Bottleneck Coordination Graphs for Multi-Agent Reinforcement Learning](https://arxiv.org/abs/2605.17393)
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference，核心内容是《[AAFLOW+] Stateful Operator Abstraction with Zero-Copy Distributed KV Cache Orchestration for Multi-Agent Workflows》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，AAFLOW+ reduces TTFT by up to 50.2x, achieves up to 7.63x reduced multi-agent compute cost at 16-agent scale, reduces KV memory by 1.72-6.10x, and increases throughput by more than 7.74x, based on an analytical cost model parameterized by empirical hardware microbenchmarks.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：50.2x、7.63x、6.10x。
+- [MemDecay: Region-Aware KV Cache Eviction for Efficient LLM Agent Inference](https://arxiv.org/abs/2607.10582v1)
   - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Heterogeneous Information-Bottleneck Coordination Graphs for Multi-Agent Reinforcement Learning》在 arXiv cs.LG 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，arXiv:2605.17393v2 Announce Type: replace-cross Abstract: Coordination graphs are a central abstraction in cooperative multi-agent reinforcement learning (MARL), yet existing sparse-graph learners lack a theoretically grounded mechanism to decide which edges should exist and how much information each edge should carry.
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《MemDecay: Region-Aware KV Cache Eviction for Efficient LLM Agent Inference》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Accumulated-attention retention performs better on unpinned content, however, and ablations identify attention-score normalization as the main limitation of the current formulation.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [AnchorMoE: Interpretable Time Series Classification via Anchor-Routed MoE](https://arxiv.org/abs/2606.03631)
+- [UMoE:Unlocking Every Expert in Domain-Specific Training](https://arxiv.org/abs/2607.11444v1)
+  - 主题: Agent systems and multi-agent efficiency, Coding agent routing, Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing、Cost-efficient LLM inference，核心内容是《UMoE:Unlocking Every Expert in Domain-Specific Training》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Analysis reveals that the direct-SFT model allocates substantial routed-expert compute to a low-saliency subset that can be removed post hoc with little average degradation; UMoE turns this redundant capacity into useful domain capacity and achieves lower training loss, with gains spanning all difficulty levels in downstream evaluation.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
+- [HCRMap: Pressure-Aware Hot-Expert Residency Mapping for 3.5D MoE Chiplet Inference](https://arxiv.org/abs/2607.11586v1)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference, LLM routing
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference、LLM routing，核心内容是《HCRMap: Pressure-Aware Hot-Expert Residency Mapping for 3.5D MoE Chiplet Inference》在 arXiv API 这一方向上的推进。重点优化延迟，通常可带来更高性价比。从实验上看，Experimental results show that HCRMap reduces end-to-end latency by 43.6% and 43.0% over Hydra in the prefill and decode stages, respectively; by 34.5% and 33.1% over MoEntwine; and by 46.7% and 46.0% over PIMoE.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：43.6%、43.0%、34.5%。
+- [WebDesignIter: Co-Evolving Design Knowledge for Repository-Level Front-End Code Generation](https://arxiv.org/abs/2607.10621v1)
+  - 主题: Agent systems and multi-agent efficiency, Coding agent routing
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing，核心内容是《WebDesignIter: Co-Evolving Design Knowledge for Repository-Level Front-End Code Generation》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，More importantly, WebDesignIter outperforms every general-purpose coding agent Claude Code, OpenHands, SWE-Agent, Codex CLI on every model configuration, posting the highest Pass@1 and Pass@2 while consuming 2530 fewer input tokens.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
+- [FlashAccel: Leveraging High-Bandwidth Flash for High-Throughput LLM Inference](https://arxiv.org/abs/2607.10186v1)
   - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《AnchorMoE: Interpretable Time Series Classification via Anchor-Routed MoE》在 arXiv cs.LG 这一方向上的推进。强调异构硬件协同推理。从实验上看，Extensive experiments on real-world and synthetic benchmarks demonstrate that AnchorMoE achieves highly competitive classification performance while faithfully grounding its decisions in the raw time series.
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《FlashAccel: Leveraging High-Bandwidth Flash for High-Throughput LLM Inference》在 arXiv API 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Experimental results demonstrate that integrating six HBF stacks into the GPU enables FlashAccel to deliver an average improvement of 2.54$\times$ and 1.93$\times$ in throughput per GPU and energy efficiency over the HBM-only GPU under 100ms latency constraint, respectively.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：100ms。
+- [Heterogeneous Agent Cohorts for Safe Open-Ended Exploration with Runtime Constraint Memory](https://arxiv.org/abs/2607.11226v1)
+  - 主题: Agent systems and multi-agent efficiency, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Heterogeneous MoE inference，核心内容是《Heterogeneous Agent Cohorts for Safe Open-Ended Exploration with Runtime Constraint Memory》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，In a spatial-semantic sandbox (N=20 runs, p<0.01), our cohort reaches remote targets where debate fails, the Validator prevents all executed breaches, and Scars reduce token consumption by 15.1% by avoiding redundant validator checks.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：15.1%、55.9%。
+- [Agentic Routing: The Harness-Native Data Flywheel](https://arxiv.org/abs/2607.11399v1)
+  - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference, LLM routing
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、LLM routing，核心内容是《Agentic Routing: The Harness-Native Data Flywheel》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，The report studies singleton and multi-model routing on agentic benchmarks including DRACO and PinchBench, and argues that agentic routing is not merely cost control, but a data engine for agent-native training.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [Jet-Long: Efficient Long-Context Extension with Dynamic Bifocal RoPE](https://arxiv.org/abs/2607.07740)
-  - 主题: Agent systems and multi-agent efficiency, Coding agent routing, Cost-efficient LLM inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing、Cost-efficient LLM inference，核心内容是《Jet-Long: Efficient Long-Context Extension with Dynamic Bifocal RoPE》在 arXiv cs.LG 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，On Qwen3-1.7B/4B/8B up to 128K context, Jet-Long leads RULER by $+4.79$/$+2.18$/$+2.03$ pp over the strongest baseline at 1.7B/4B/8B, achieves the best overall accuracy on HELMET-RAG (a benchmark identified by HELMET as the most efficient predictor of downstream long-context performance) and attains the lowest PG-19 perplexity.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
+- [Prompt Generation Technical Report](https://arxiv.org/abs/2607.11326v1)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Prompt Generation Technical Report》在 arXiv API 这一方向上的推进。强调异构硬件协同推理。从实验上看，PG has been deployed on Taobao Search with statistically significant online A/B uplifts of +0.47% in transaction count and +0.51% in GMV, and has been applied across multiple Taobao search and recommendation teams as the iteration framework for generative retrieval.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：0.47%、0.51%。
 
 ## 配置
 
