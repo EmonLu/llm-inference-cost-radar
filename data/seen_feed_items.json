@@ -48,5 +48,6 @@
   "https://vllm.ai/blog/turboquant",
   "https://vllm.ai/blog/vllm-tops-artificial-analysis",
   "https://www.lmsys.org/blog/2026-06-17-ling-2-6-tpu/",
-  "https://www.lmsys.org/blog/2026-07-30-sglang-google-tpu/"
+  "https://www.lmsys.org/blog/2026-07-30-sglang-google-tpu/",
+  "https://www.lmsys.org/blog/2026-07-31-cleaner-quantization-stack/"
 ]
