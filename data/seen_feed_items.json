@@ -11,6 +11,7 @@
   "https://pytorch.org/?p=148439",
   "https://pytorch.org/?p=149043",
   "https://pytorch.org/?p=150166",
+  "https://pytorch.org/?p=151412",
   "https://pytorch.org/?p=76581",
   "https://pytorch.org/?p=79236",
   "https://pytorch.org/?p=82879",
@@ -49,5 +50,6 @@
   "https://vllm.ai/blog/vllm-tops-artificial-analysis",
   "https://www.lmsys.org/blog/2026-06-17-ling-2-6-tpu/",
   "https://www.lmsys.org/blog/2026-07-30-sglang-google-tpu/",
-  "https://www.lmsys.org/blog/2026-07-31-cleaner-quantization-stack/"
+  "https://www.lmsys.org/blog/2026-07-31-cleaner-quantization-stack/",
+  "https://www.lmsys.org/blog/2026-08-05-glmImage-optimization/"
 ]
