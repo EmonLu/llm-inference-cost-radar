@@ -89,6 +89,7 @@
   "https://vllm.ai/blog/2026-10-20-vllm-torchtpu",
   "https://vllm.ai/blog/2026-10-21-flint",
   "https://vllm.ai/blog/2026-10-21-humming",
+  "https://vllm.ai/blog/2026-10-23-minimax-m31-flash",
   "https://vllm.ai/blog/mooncake-store",
   "https://vllm.ai/blog/turboquant",
   "https://vllm.ai/blog/vllm-tops-artificial-analysis",
@@ -96,5 +97,6 @@
   "https://www.lmsys.org/blog/2026-07-30-sglang-google-tpu/",
   "https://www.lmsys.org/blog/2026-07-31-cleaner-quantization-stack/",
   "https://www.lmsys.org/blog/2026-08-05-glmImage-optimization/",
-  "https://www.lmsys.org/blog/2026-08-10-meta-muse-glimmer/"
+  "https://www.lmsys.org/blog/2026-08-10-meta-muse-glimmer/",
+  "https://www.lmsys.org/blog/2026-10-22-sglang-trainium-beta/"
 ]
