@@ -15,56 +15,56 @@
 
 ## 最新更新
 
-- 日期: 2026-10-23
+- 日期: 2026-10-24
 - 今日新论文: 15
-- 今日新权威来源更新: 2
+- 今日新权威来源更新: 1
 - 本周精选论文: 25
-- 本周精选权威来源更新: 8
-- 日报: `papers/2026-10-23.md`
-- 周报: `digests/weekly-2026-10-23.md`
+- 本周精选权威来源更新: 9
+- 日报: `papers/2026-10-24.md`
+- 周报: `digests/weekly-2026-10-24.md`
 
 ## 今日最值得看
 
-- [Specter: Fast MoE Inference via Quantization-Enabled Multi-Step Speculative Offloading](https://arxiv.org/abs/2511.14102)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference, LLM routing
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference、LLM routing，核心内容是《Specter: Fast MoE Inference via Quantization-Enabled Multi-Step Speculative Offloading》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Under single-request inference, Specter achieves an average 1.50x (up to 1.88x) speedup in time per output token (TPOT) over the state-of-the-art system.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：1.50x、1.88x。
-- [Gandalf: Flash Shall Not Die! Increasing Flash Storage Lifetime for KV Cache Offloading in LLM Serving](https://arxiv.org/abs/2610.30791)
+- [SARIA: Persistence-Aware KV Caching with Coordinated DRAM--SSD Reload for LLM Agents](https://arxiv.org/abs/2610.31169v1)
   - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Gandalf: Flash Shall Not Die! Increasing Flash Storage Lifetime for KV Cache Offloading in LLM Serving》在 arXiv cs.LG 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Our evaluation shows that Gandalf extends the SSD lifetime by 7.3X on average, while having negligible impact on cache hit rate across multiple workload traces and wide range of hardware capacity.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：7.3X。
-- [SWE-VERIFIER: Selective Verification for Cost-Efficient Coding Agents](https://arxiv.org/abs/2610.30284)
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《SARIA: Persistence-Aware KV Caching with Coordinated DRAM--SSD Reload for LLM Agents》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，The results show that \textsc{Saria} reduces SSD writes by 57.1--58.9\% compared with popular full duplicate caching and the mean time to first token (TTFT) by 42.3--79.7\% over DRAM-only caching.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
+- [Benchmarking Coding Agents for System-Level Performance Optimization](https://arxiv.org/abs/2610.29695v1)
   - 主题: Coding agent routing, Cost-efficient LLM inference
-  - 中文解读: 这项工作主要关注Coding agent routing、Cost-efficient LLM inference，核心内容是《SWE-VERIFIER: Selective Verification for Cost-Efficient Coding Agents》在 arXiv cs.LG 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Across both models, SWE-Verifier verifies fewer than 4% of steps and achieves comparable or higher resolution than the trajectory and all-step baselines at substantially lower cost.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：4%、75.47%、77.20%。
-- [IQuest-Q1: Advancing Foundation Capabilities for Agentic CLI Systems](https://arxiv.org/abs/2610.30949)
-  - 主题: Coding agent routing, Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Coding agent routing、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《IQuest-Q1: Advancing Foundation Capabilities for Agentic CLI Systems》在 arXiv cs.CL 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，arXiv:2610.30949v1 Announce Type: new Abstract: We present IQuest-Q1, a sparse Mixture-of-Experts (MoE) agentic foundation model with 320B total parameters (15B activated).
+  - 中文解读: 这项工作主要关注Coding agent routing、Cost-efficient LLM inference，核心内容是《Benchmarking Coding Agents for System-Level Performance Optimization》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Across 1,755 runs covering nine agent-model configurations, the best configuration recovers only 42.0% of the injected performance degradation.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：42.0%。
+- [Adaptive Skill Granularity for Coding Agents: Runtime Routing and Macro-to-Micro Recovery](https://arxiv.org/abs/2610.31461v1)
+  - 主题: Agent systems and multi-agent efficiency, Coding agent routing, LLM routing
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing、LLM routing，核心内容是《Adaptive Skill Granularity for Coding Agents: Runtime Routing and Macro-to-Micro Recovery》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，We evaluate the framework with a deterministic coding-agent protocol using verifier-defined success, total cost, and process metrics such as macro adoption, failure recovery, route match, and transition correctness.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [MoEZip: Routing-Aware KV Cache Compression for Sparse Mixture-of-Experts LLMs](https://arxiv.org/abs/2610.30206)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference, LLM routing
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference、LLM routing，核心内容是《MoEZip: Routing-Aware KV Cache Compression for Sparse Mixture-of-Experts LLMs》在 arXiv cs.LG 这一方向上的推进。通过 KV cache 优化长上下文推理成本。从实验上看，Experiments show that MoEZip achieves robust performance under aggressive cache compression on various benchmarks.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [RIFT: KV Cache Compression for Draft Models with Complementary Compressibility Training](https://arxiv.org/abs/2610.31098)
-  - 主题: Cost-efficient LLM inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference，核心内容是《RIFT: KV Cache Compression for Draft Models with Complementary Compressibility Training》在 arXiv cs.CL 这一方向上的推进。通过 KV cache 优化长上下文推理成本。从实验上看，Combined with compressibility training, RIFT enables Qwen3.5-4B, drafting for Qwen3.5-122B, to retain over 98% of its full-cache acceptance length on 32K-token inputs, 4K-token outputs, and an 8K-token KV cache budget.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：98%。
-- [Evaluating the Applicability of LLM Inference Optimizations on Apple Silicon](https://arxiv.org/abs/2610.31479)
+- [Same Beliefs, Different Policies: Learning Reusable Representations for Early Stopping in LLM Reasoning](https://arxiv.org/abs/2610.30450v1)
+  - 主题: Agent systems and multi-agent efficiency, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Heterogeneous MoE inference，核心内容是《Same Beliefs, Different Policies: Learning Reusable Representations for Early Stopping in LLM Reasoning》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Averaged over five out-of-distribution (OOD) math benchmarks, BELT reduces generated tokens by 41% on Qwen3-1.7B and 51% on OLMo-3-7B-Think without loss of accuracy.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：41%、51%、21.2x。
+- [Amplifying Latency and Cost of LLM Inference via Rowhammer Attack](https://arxiv.org/abs/2610.30798v1)
   - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Evaluating the Applicability of LLM Inference Optimizations on Apple Silicon》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Under the common benchmark, all evaluated speculative decoding methods reduce throughput on Apple, despite reported 2-6 times gains on server GPUs.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [PAUSE: Search-Free Steering of Coding Agents Before Their First Source-Code Edit](https://arxiv.org/abs/2610.29870)
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Amplifying Latency and Cost of LLM Inference via Rowhammer Attack》在 arXiv API 这一方向上的推进。涉及 CPU 侧参与推理或加速。从实验上看，LLVMhammer increases inference latency of an LLM inference server running on a single GPU by 4-16\%, which, in turn, can translate into additional annual operating costs at the scale of multi-GPU deployments.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：7900 X。
+- [Your Token Is Gone: A Token-Consumption Countermeasure for Disrupting LLM-Based Scam Systems](https://arxiv.org/abs/2610.30666v1)
+  - 主题: Agent systems and multi-agent efficiency, LLM routing
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、LLM routing，核心内容是《Your Token Is Gone: A Token-Consumption Countermeasure for Disrupting LLM-Based Scam Systems》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Its router achieves 85.67% accuracy on 300 architecture-labeled prompts.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：85.67%。
+- [MemoryTax: The Bitter Lesson of Agent Memory](https://arxiv.org/abs/2610.29823v1)
+  - 主题: Agent systems and multi-agent efficiency, Coding agent routing
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing，核心内容是《MemoryTax: The Bitter Lesson of Agent Memory》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，With Claude Opus 5.5, Pi tops the cost-accuracy frontier, scoring 99% for less than half the cost of full context; its one miss is a wrong answer key.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：99%。
+- [BIRD-RL: Scaling Agentic Reinforcement Learning over Stateful Data-Centric Environments](https://arxiv.org/abs/2610.29426v1)
+  - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《BIRD-RL: Scaling Agentic Reinforcement Learning over Stateful Data-Centric Environments》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Empirical evaluations on the BIRD-CRITIC-SQLite benchmark demonstrate that our 7B and 14B models achieve Success Rates of 44.40% and 48.00%, respectively, showing competitive performance against strong proprietary model-based agents such as Claude-Opus-4.6 Agent (48.20%).
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：44.40%、48.00%、48.20%。
+- [BrickWright: Agentic Creation of Physically Feasible Brick Builds](https://arxiv.org/abs/2610.31651v1)
   - 主题: Coding agent routing
-  - 中文解读: 这项工作主要关注Coding agent routing，核心内容是《PAUSE: Search-Free Steering of Coding Agents Before Their First Source-Code Edit》在 arXiv cs.AI 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，With Qwen3-coder as Executor and GPT-5.6 Sol as Planner, online steering improves resolution by 16.8% on Verified in OpenHands and by 14.7% on Multilingual in SWE-agent.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：5.6 S、16.8%、14.7%。
-- [WeGR: Towards Unified Generative Retrieval via Behavior-aware Tokenization and Preference Alignment](https://arxiv.org/abs/2610.16979)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《WeGR: Towards Unified Generative Retrieval via Behavior-aware Tokenization and Preference Alignment》在 arXiv cs.AI 这一方向上的推进。涉及 CPU 侧参与推理或加速。从实验上看，Moreover, a six-week online A/B test on a large-scale e-commerce search platform achieves relative gains of 2.539% in orders, 1.508% in CTR, and 1.381% in CVR, while reducing CPU and GPU usage by 25.5% and 26.1%.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：2.539%、1.508%、1.381%。
-- [uGDS: A User-Space Development Kit for High-Performance GPU Direct Storage](https://arxiv.org/abs/2610.30868)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《uGDS: A User-Space Development Kit for High-Performance GPU Direct Storage》在 arXiv cs.DC 这一方向上的推进。涉及 CPU 侧参与推理或加速。从实验上看，Evaluated on an A100 with a Samsung 990 PRO, uGDS achieves up to 12.12x GDS's batch-read bandwidth and 30.69x its batch-write bandwidth (8- and 4-KiB requests, batch size 128), and reduces 4-KiB synchronous write latency by 84.1% with two threads.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：12.12x、30.69x、84.1%。
+  - 中文解读: 这项工作主要关注Coding agent routing，核心内容是《BrickWright: Agentic Creation of Physically Feasible Brick Builds》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Whereas baseline agents achieve physical validity rates ranging from only 9% (GPT-6 Luna) to 69% (GPT-6 Astra), BrickWright-guided agents achieve 100% validity on a sample of 512 prompts, while improving prompt adherence for lightweight agents and maintaining it for stronger agents.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：9%、69%、100%。
+- [RAIN: Agentic Proof Generation for Rocq-based Software Verification](https://arxiv.org/abs/2610.30759v1)
+  - 主题: Agent systems and multi-agent efficiency, Coding agent routing
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing，核心内容是《RAIN: Agentic Proof Generation for Rocq-based Software Verification》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Evaluated on a subset from CoqStoq, RAIN shows substantial improvements over the existing baselines, achieving over 90% prove success rate with at least 24.7% improvements.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：90%、24.7%。
 
 ## 配置
 
