@@ -15,40 +15,56 @@
 
 ## 最新更新
 
-- 日期: 2026-11-08
-- 今日新论文: 6
+- 日期: 2026-11-09
+- 今日新论文: 15
 - 今日新权威来源更新: 0
 - 本周精选论文: 25
 - 本周精选权威来源更新: 4
-- 日报: `papers/2026-11-08.md`
-- 周报: `digests/weekly-2026-11-08.md`
+- 日报: `papers/2026-11-09.md`
+- 周报: `digests/weekly-2026-11-09.md`
 
 ## 今日最值得看
 
-- [An Agent-Driven, Cross-Validated Inverse-Design Pipeline for Dielectric Metasurfaces](https://arxiv.org/abs/2611.08127v1)
-  - 主题: Coding agent routing
-  - 中文解读: 这项工作主要关注Coding agent routing，核心内容是《An Agent-Driven, Cross-Validated Inverse-Design Pipeline for Dielectric Metasurfaces》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，In the other cases, instead, the obtained RCWA results are confirmed by full-wave simulations.
+- [Nebula: Distributed Position-Independent Caching for LLM Serving](https://arxiv.org/abs/2611.09474)
+  - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Nebula: Distributed Position-Independent Caching for LLM Serving》在 arXiv cs.DC 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Across four models and four real-world RAG and agentic workloads, Nebula reduces median TTFT by an average of 61.4% compared with the strongest existing baseline and recovers an average of 76.1% of the tokens missed by prefix caching.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：61.4%、76.1%。
+- [Introducing Cluster Efficiency to LLM Serving: Pooling Economical Accelerators over Fast Interconnects](https://arxiv.org/abs/2611.02975)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Introducing Cluster Efficiency to LLM Serving: Pooling Economical Accelerators over Fast Interconnects》在 arXiv cs.DC 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Emulating TCP-class communication on the same chips reduces throughput by 23.5-67.4% and eliminates the cost advantage in every evaluated configuration.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：67.4%。
+- [ELDR: Expert-Locality-Aware Decode Routing for PD-Disaggregated MoE Serving](https://arxiv.org/abs/2607.00466)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference, LLM routing
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference、LLM routing，核心内容是《ELDR: Expert-Locality-Aware Decode Routing for PD-Disaggregated MoE Serving》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Across three MoE models on 12 public task benchmarks and multilingual WildChat, it reduces median time-per-output-token (TPOT) by 5.4-14.5% on average across request rates and up to 17.8% over the best of four load-balancing baselines, preserving model outputs and token-to-expert assignments.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：14.5%、17.8%。
+- [BitDecoding-FP4: Native FP4 KV Cache Decoding via Algorithm-System Co-Design](https://arxiv.org/abs/2611.09825)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《BitDecoding-FP4: Native FP4 KV Cache Decoding via Algorithm-System Co-Design》在 arXiv cs.CL 这一方向上的推进。通过 KV cache 优化长上下文推理成本。从实验上看，We mitigate three error sources: Dual-Residual Query Quantization splits queries into two FP4 tensors, cutting query logit error from 60% to 1%; Underflow-Aware Probability Scaling prevents E4M3 scales from rounding long-context probabilities to zero; and Outlier-Aware Key Quantization combines static smoothing, Hadamard rotation, and scale search to suppress key outliers under token-wise scaling.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：60%、1%、3 s。
+- [ISER-MoE: Dynamic In-Switch Replication of Hot Experts for Load Balancing in Expert-Parallel](https://arxiv.org/abs/2611.09008)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《ISER-MoE: Dynamic In-Switch Replication of Hot Experts for Load Balancing in Expert-Parallel》在 arXiv cs.DC 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，In trace replay, the scheduler removed 98-99% of the excess load; in prefill serving of DeepSeek-V4-Pro, throughput rose 17.4% on a math benchmark and 7.2% on agentic prompts.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：99%、17.4%、7.2%。
+- [MeshRT: Compile-Time Governed Wafer-Scale Runtime for Low-Latency High-Throughput Inference](https://arxiv.org/abs/2611.08508)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《MeshRT: Compile-Time Governed Wafer-Scale Runtime for Low-Latency High-Throughput Inference》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Against measured single-instance SGLang results on H200, MeshRT achieves 4.5-7.0$\times$ lower latency.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization](https://arxiv.org/abs/2611.08483v1)
-  - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference，核心内容是《SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，On several problems, SwarmEvolve with Qwen3 8B improves on the solutions that AlphaEvolve first found with frontier LLMs.
+- [Enabling Privacy-Preserving Natural Language Access to Industrial Smart Meter Data](https://arxiv.org/abs/2611.09372v1)
+  - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference, Heterogeneous MoE inference, LLM routing
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Enabling Privacy-Preserving Natural Language Access to Industrial Smart Meter Data》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Multi-scenario ablation studies over this environment demonstrate that full multi-agent orchestration shows its largest observed accuracy gains on resource-constrained local hardware (+6.1 pp EX-R over the strongest single-agent configuration); at frontier scale, individual components retain value but should be enabled selectively, indicating that the cost of full orchestration is justified specifically where privacy demands local execution.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [Benchmarks as Software: Terminal-Bench and the Case for Continuous Benchmarks](https://arxiv.org/abs/2611.08417v1)
-  - 主题: Coding agent routing
-  - 中文解读: 这项工作主要关注Coding agent routing，核心内容是《Benchmarks as Software: Terminal-Bench and the Case for Continuous Benchmarks》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Our audit identifies issues in roughly 30% of the benchmark, and we release the resulting repairs as Terminal-Bench 2.1.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：30%。
-- [PCBRouteAgent: How Close Are LLM Agents to Becoming PCB Routing Engineers?](https://arxiv.org/abs/2611.08175v1)
-  - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference, LLM routing
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、LLM routing，核心内容是《PCBRouteAgent: How Close Are LLM Agents to Becoming PCB Routing Engineers?》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，It achieves clean-pass rates of 100%, 94.9%, 100%, and 40% on D2, D3-A, D3-B, and D3-C, respectively.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：100%、94.9%。
-- [Who Should Know What? Empirical Information Design for Multi-Agent LLM Economies](https://arxiv.org/abs/2611.07667v1)
-  - 主题: Agent systems and multi-agent efficiency
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency，核心内容是《Who Should Know What? Empirical Information Design for Multi-Agent LLM Economies》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，In trade, revealing exact valuations rather than ordinal preference rankings reduces realized gains for GPT-6 Sol (from 98% to 91% of maximum) yet increases them for Claude Sonnet 5 (from 72% to 86%).
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：6 S、98%、91%。
-- [Towards Foundation Decision Models: Drex](https://arxiv.org/abs/2611.07854v1)
-  - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference，核心内容是《Towards Foundation Decision Models: Drex》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Max answers a typical request in 183 ms, against about 2.0 s for GPT-6 Sol and 3.5 s for Claude Opus 5.5, and its outputs are stable under option reordering.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：183 ms、2.0 s、6 S。
+- [RPEG: Training Reasoning Language Models Scalably and Cost-Effectively](https://arxiv.org/abs/2611.09207)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《RPEG: Training Reasoning Language Models Scalably and Cost-Effectively》在 arXiv cs.DC 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，Across systems with up to 256 GH200 GPUs, our distributed runtime engine implementing RPEG improves performance by up to 2x over ReaL and reduces step latency by up to 2.48x over verl, while increasing hardware utilization by up to 30%.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：2x、2.48x、30%。
+- [MINE: Entropy-coded Memory-efficient Inference for Large Language Models](https://arxiv.org/abs/2611.09424v1)
+  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《MINE: Entropy-coded Memory-efficient Inference for Large Language Models》在 arXiv API 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，It exploits the non-uniform distribution of weights, which persists even after quantization, and exposes hyper-parameters that trade compression ratio against decoding cost.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
+- [Same Request, Different Answer: Quantization Amplifies Cache-Induced Divergence in LLM Serving](https://arxiv.org/abs/2609.04748)
+  - 主题: Cost-efficient LLM inference
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference，核心内容是《Same Request, Different Answer: Quantization Amplifies Cache-Induced Divergence in LLM Serving》在 arXiv cs.DC 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，We measure what this prefix reuse costs in reproducibility.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
 
 ## 配置
 
