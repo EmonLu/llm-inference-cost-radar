@@ -15,56 +15,56 @@
 
 ## 最新更新
 
-- 日期: 2026-11-11
+- 日期: 2026-11-12
 - 今日新论文: 15
 - 今日新权威来源更新: 1
 - 本周精选论文: 25
-- 本周精选权威来源更新: 4
-- 日报: `papers/2026-11-11.md`
-- 周报: `digests/weekly-2026-11-11.md`
+- 本周精选权威来源更新: 5
+- 日报: `papers/2026-11-12.md`
+- 周报: `digests/weekly-2026-11-12.md`
 
 ## 今日最值得看
 
-- [SHADOWPREFILL: Keeping Your Next Model Warm for Per-Step Model Routing in Agentic LLM Serving](https://arxiv.org/abs/2611.13176v1)
-  - 主题: Agent systems and multi-agent efficiency, Coding agent routing, Cost-efficient LLM inference, LLM routing
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing、Cost-efficient LLM inference，核心内容是《SHADOWPREFILL: Keeping Your Next Model Warm for Per-Step Model Routing in Agentic LLM Serving》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，With LLMRouter routing 24 model pairs over five agentic benchmark suites, SHADOWPREFILL cuts switch-call latency by 8.5-21.4%, LLM-call latency by 3.7-17.7%, and routed token cost by 22.5-46.1%, while normal traffic keeps its SLO and energy per request rises by 0.4%.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：21.4%、17.7%、46.1%。
-- [Multi-Objective Scheduling of LLM-Based Multi-Agent Workflows in Cloud Computing](https://arxiv.org/abs/2611.13740)
+- [Placing LLM Lookup Tables by Per-Layer Prefetch Deadlines](https://arxiv.org/abs/2611.13413v1)
   - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Multi-Objective Scheduling of LLM-Based Multi-Agent Workflows in Cloud Computing》在 arXiv cs.DC 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Existing agentic workflow frameworks mostly focus on output quality and task success rates over popular benchmarks, rarely accounting for execution dynamics of LLM-based agents such as inference latency, computation power of heterogeneous resources, cloud-specific billing period and resource provisioning overheads.
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Placing LLM Lookup Tables by Per-Layer Prefetch Deadlines》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，On a KV-constrained agent workload, using the freed memory as host KV cache at the same memory budget raises median throughput by 36% and cuts median p90 time to first token from 38 to 24 s.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：36%、24 s、1.4%。
+- [Cognitive Multi-Agent Search and Rescue: Language-Grounded Hierarchical Reinforcement Learning for Collaborative Robotics](https://arxiv.org/abs/2611.13161v1)
+  - 主题: Agent systems and multi-agent efficiency, Heterogeneous MoE inference
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Heterogeneous MoE inference，核心内容是《Cognitive Multi-Agent Search and Rescue: Language-Grounded Hierarchical Reinforcement Learning for Collaborative Robotics》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Comprehensive experiments in a simulated disaster environment show that LG-HRL improves learning speed by 2.3 times, increases coordination coherence by 37%, and enhances subgoal accuracy and hazard avoidance by 46% and 31%, respectively.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：37%、46%、31%。
+- [Repository-Context-Guided Image Understanding for Agentic Software Development](https://arxiv.org/abs/2611.13026v1)
+  - 主题: Coding agent routing, Cost-efficient LLM inference
+  - 中文解读: 这项工作主要关注Coding agent routing、Cost-efficient LLM inference，核心内容是《Repository-Context-Guided Image Understanding for Agentic Software Development》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，We evaluate the approach on a controlled benchmark derived from SWE-bench Multimodal by injecting visual UI bugs into a real web application.
   - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [Dynamic Mixed-Precision Routing for Efficient Multi-step LLM Interaction](https://arxiv.org/abs/2602.02711)
-  - 主题: Cost-efficient LLM inference, LLM routing
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、LLM routing，核心内容是《Dynamic Mixed-Precision Routing for Efficient Multi-step LLM Interaction》在 arXiv cs.AI 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Across three long-horizon agentic benchmarks with nested quantization, DMR achieves an average 2.44x decode speedup over FP16 at comparable task success rates, without fine-tuning the underlying model.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：2.44x、1.71x、86.9%。
-- [One-Sided Expert-Parallel All-to-All for Mixture-of-Experts Inference over NVLink](https://arxiv.org/abs/2611.13188v1)
+- [SinkState: On-the-Fly SVD of Recurrent States for Efficient Hybrid LLM Serving](https://arxiv.org/abs/2611.14246v1)
   - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《One-Sided Expert-Parallel All-to-All for Mixture-of-Experts Inference over NVLink》在 arXiv API 这一方向上的推进。涉及 GPU 侧推理优化。从实验上看，It even outperforms the fused DeepGEMM MegaMoE at up to 128 tokens per GPU, making it still competitive for decoding.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
-- [EngineAgent: Agentizing On-Device LLM Inference Engines with Inference Stack Hierarchy Awareness and Hardware Abilities](https://arxiv.org/abs/2611.14356v1)
-  - 主题: Agent systems and multi-agent efficiency, Coding agent routing, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing、Heterogeneous MoE inference，核心内容是《EngineAgent: Agentizing On-Device LLM Inference Engines with Inference Stack Hierarchy Awareness and Hardware Abilities》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Across 12 tasks spanning three mobile LLMs and four engine--backend pairs on CPUs, GPUs, and NPUs, EngineAgent achieves 75% end-to-end success with either of two underlying LLMs, versus 33.3% for the strongest coding-agent baseline.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：75%、33.3%。
-- [AgentWeave: Efficient Distributed Agent Serving via Flow Decomposition](https://arxiv.org/abs/2610.14804)
+  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《SinkState: On-the-Fly SVD of Recurrent States for Efficient Hybrid LLM Serving》在 arXiv API 这一方向上的推进。涉及 CPU 侧参与推理或加速。从实验上看，On four hybrid models with Mamba-2 and Gated DeltaNet (GDN) layers, from 4B to 120B parameters, SinkState reduces the peak memory of recurrent states by up to 2.6x (1.9x on average) and speeds up decoding by up to 1.58x (1.25x on average) over Mamba-SSM and FLA, while maintaining accuracy.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：2.6x、1.9x、1.58x。
+- [SteerDistill: Quantizing LLM Agents via Closed-Loop Teacher Steering](https://arxiv.org/abs/2611.13410v1)
   - 主题: Agent systems and multi-agent efficiency, Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《AgentWeave: Efficient Distributed Agent Serving via Flow Decomposition》在 arXiv cs.DC 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Experiments across four representative agent applications demonstrate that AgentWeave improves throughput by 1.28-1.81x, reduces average latency by 2.08-2.45x, and reduces P90 latency by 1.56-2.04x over state-of-the-art baselines.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：1.81x、2.45x、2.04x。
-- [Deterministic, Reproducible Inference in Exact Integer Arithmetic, and Verifiable Distributed Inference as Its Consequence](https://arxiv.org/abs/2611.13730v1)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《Deterministic, Reproducible Inference in Exact Integer Arithmetic, and Verifiable Distributed Inference as Its Consequence》在 arXiv API 这一方向上的推进。涉及 CPU 侧参与推理或加速。从实验上看，GLM-4.5-Air (106,852,251,264 parameters, 427 GB of integer codes) generated its answer across three machines, none of which can hold its integer codes in RAM, bit-identically to a single-host reference.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：427 GB。
-- [Scaling Shapley Energy Attribution to Large LLM Batches](https://arxiv.org/abs/2611.13802v1)
-  - 主题: Agent systems and multi-agent efficiency, Coding agent routing, Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing、Cost-efficient LLM inference，核心内容是《Scaling Shapley Energy Attribution to Large LLM Batches》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Under static batching with batch sizes of 8-256, StepSplit achieves an $L_1$ error of 0.4-4.3%, compared with 13.4-61.3% for token-proportional allocation.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：4.3%、61.3%、6.4%。
-- [DrugCoding: A Scientific Programming Agent for Drug Discovery](https://arxiv.org/abs/2611.13651v1)
-  - 主题: Agent systems and multi-agent efficiency, Coding agent routing, LLM routing
-  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing、LLM routing，核心内容是《DrugCoding: A Scientific Programming Agent for Drug Discovery》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Experimental results demonstrate that DrugCoding achieves an average session-level Pass@1 of 97.35% on the full benchmark, outperforming the strongest baseline, Codex, by 9.24%.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：97.35%、9.24%、97.92%。
-- [ForeSpark: Joint Draft and Verification Budget Scheduling for Parallel Speculative Decoding](https://arxiv.org/abs/2611.13442)
-  - 主题: Cost-efficient LLM inference, Heterogeneous MoE inference
-  - 中文解读: 这项工作主要关注Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《ForeSpark: Joint Draft and Verification Budget Scheduling for Parallel Speculative Decoding》在 arXiv cs.DC 这一方向上的推进。重点优化延迟，通常可带来更高性价比。从实验上看，Implemented on vLLM, ForeSpark improves throughput by up to 1.77x over the state-of-the-art DSpark and by 2.49x over autoregressive decoding at a matched per-request generation rate, without changing the output distribution.
-  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：1.77x、2.49x、1.51x。
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Cost-efficient LLM inference、Heterogeneous MoE inference，核心内容是《SteerDistill: Quantizing LLM Agents via Closed-Loop Teacher Steering》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，On $τ^2$-Bench, it outperforms QeRL by 1.84 percentage points in success rate using 67% fewer training GPU hours and produces shorter successful trajectories than the quantized baselines.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：67%。
+- [Coding Agents in KVM: Practical Containment and User Control with Limited Resources](https://arxiv.org/abs/2611.12823v1)
+  - 主题: Agent systems and multi-agent efficiency, Coding agent routing
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing，核心内容是《Coding Agents in KVM: Practical Containment and User Control with Limited Resources》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Off-the-shelf cloud workspaces can help contain agent activity, but reliance on provider-specific platforms can lead to vendor lock-in and reduced user control.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
+- [MIRIX-2.0: Multi-Agent Memory System](https://arxiv.org/abs/2611.12068v1)
+  - 主题: Agent systems and multi-agent efficiency
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency，核心内容是《MIRIX-2.0: Multi-Agent Memory System》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，As procedural memory, it yields the highest mean success among the compared memory methods on ALFWorld and WebShop and reaches 49.2% on MetaClaw-Bench, against 44.0% for MetaClaw's skill library.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：49.2%、44.0%、91.4%。
+- [From Attack Surface to Defense Architecture: Compositional Security for Agentic Coding Harnesses](https://arxiv.org/abs/2611.13960v1)
+  - 主题: Agent systems and multi-agent efficiency, Coding agent routing, Cost-efficient LLM inference
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing、Cost-efficient LLM inference，核心内容是《From Attack Surface to Defense Architecture: Compositional Security for Agentic Coding Harnesses》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，In a multi-step trajectory ablation, an oracle Conseca-style stateless policy misses $4/12$ kill chains ($\mathrm{ABR}=0.667$) and coarse Boolean taint blocks $83.3\%$ of benign workflows, while our 2D product lattice achieves $\mathrm{ABR}=1.000$ and $\mathrm{FPR}=0.000$ at $\approx 20\,μ\mathrm{s}$ per step.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
+- [FlowPlan: Reducing the Token Cost of Coding Agents with Abstraction-Guided Planning and Verification](https://arxiv.org/abs/2611.13241v1)
+  - 主题: Agent systems and multi-agent efficiency, Coding agent routing
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing，核心内容是《FlowPlan: Reducing the Token Cost of Coding Agents with Abstraction-Guided Planning and Verification》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，With Claude Haiku 4.5, it uses only 0.46-0.47x the baseline tokens on SWE-bench Pro, 0.32-0.35x on SWE-bench Verified, and 0.68-0.74x on SecBench; with Sonnet 5, it uses 0.72-0.76x, 0.73-0.74x, and 0.92-0.94x, respectively.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：0.47x、0.35x、0.74x。
+- [Autonomous Optimization of Numerical Algorithms by an AI Agent: Application to Atomistic Simulation](https://arxiv.org/abs/2611.13143v1)
+  - 主题: Agent systems and multi-agent efficiency, Coding agent routing
+  - 中文解读: 这项工作主要关注Agent systems and multi-agent efficiency、Coding agent routing，核心内容是《Autonomous Optimization of Numerical Algorithms by an AI Agent: Application to Atomistic Simulation》在 arXiv API 这一方向上的推进。与 agent 系统/工作流有关，纳入重点跟踪。从实验上看，Applied to ASE, a widely used atomistic simulation library, AIOA targets two facets of an algorithm: its implementation, rewritten to run faster with unchanged results, and the method itself, redesigned to converge with fewer force evaluations.
+  - 中文实验结论: 实验结果的自动翻译暂时不可用，请优先参考下方英文实验结论；当前可先重点关注这些数值：请查看下方英文实验结论。
 
 ## 配置
 
